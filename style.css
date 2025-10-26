@@ -1,5 +1,4 @@
 /* === Global Styles === */
-/* This sets the font and color palette from the images */
 body {
     margin: 0;
     padding: 0;
@@ -54,6 +53,49 @@ body {
     border-bottom: 2px solid #000; /* Underline on hover */
 }
 
+/* === NEW: Profile Header Section Styles === */
+.profile-header {
+    width: 100%;
+    height: 60vh; /* Takes up 60% of the viewport height */
+    overflow: hidden; /* Ensures image doesn't spill out */
+    position: relative;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    background-color: #eee; /* Fallback background */
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Covers the entire header area without distortion */
+    position: absolute; /* Allows text to overlay */
+    top: 0;
+    left: 0;
+    filter: brightness(80%); /* Slightly darkens the image for text readability */
+}
+
+.profile-text {
+    position: relative; /* Brings text above the image */
+    z-index: 10;
+    color: #fff; /* White text for contrast against the image */
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2); /* Subtle dark overlay for text */
+    border-radius: 8px;
+}
+
+.profile-text h1 {
+    font-size: 3.5rem; /* Larger heading */
+    margin-bottom: 10px;
+    color: #fff; /* Ensure h1 is white */
+}
+
+.profile-text h4 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #f0f0f0; /* Slightly off-white for the subheading */
+}
 
 /* === Main Content Area === */
 .container {
