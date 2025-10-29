@@ -2,22 +2,21 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Georgia, 'Times New Roman', serif; /* Elegant, web-safe serif font */
-    color: #333; /* Soft, dark charcoal text (not pure black) */
-    background-color: #f8f8f8; /* Light grey background */
+    /* === NEW FONT === */
+    font-family: 'EB Garamond', Georgia, serif; 
+    color: #333; 
+    background-color: #f8f8f8; 
     line-height: 1.7;
 }
 
 /* === New Navigation Bar === */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Pushes brand left and links right */
+    justify-content: space-between; 
     align-items: center;
-    padding: 25px 40px; /* Padding top/bottom and left/right */
-    background-color: #fff; /* White background for the header */
-    border-bottom: 1px solid #ddd; /* Subtle bottom border */
-    
-    /* Stick to the top on scroll */
+    padding: 25px 40px; 
+    background-color: #fff; 
+    border-bottom: 1px solid #ddd; 
     position: sticky;
     top: 0;
     z-index: 100;
@@ -33,80 +32,80 @@ body {
 .navbar-links ul {
     margin: 0;
     padding: 0;
-    list-style: none; /* Removes bullet points */
+    list-style: none; 
     display: flex;
 }
 
 .navbar-links li {
-    margin-left: 30px; /* Space between links */
+    margin-left: 30px; 
 }
 
 .navbar-links a {
     font-size: 1rem;
-    color: #555; /* Slightly lighter text for links */
+    color: #555; 
     text-decoration: none;
-    padding-bottom: 5px; /* Space for the hover effect */
+    padding-bottom: 5px; 
 }
 
 .navbar-links a:hover {
     color: #000;
-    border-bottom: 2px solid #000; /* Underline on hover */
+    border-bottom: 2px solid #000; 
 }
 
-/* === NEW: Profile Header Section Styles === */
+/* === Profile Header Section Styles === */
 .profile-header {
     width: 100%;
-    height: 60vh; /* Takes up 60% of the viewport height */
-    overflow: hidden; /* Ensures image doesn't spill out */
+    height: 60vh; 
+    overflow: hidden; 
     position: relative;
     display: flex;
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content */
-    background-color: #eee; /* Fallback background */
+    align-items: center; 
+    justify-content: center; 
+    background-color: #eee; 
 }
 
 .profile-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Covers the entire header area without distortion */
-    position: absolute; /* Allows text to overlay */
+    object-fit: cover; 
+    position: absolute; 
     top: 0;
     left: 0;
-    filter: brightness(80%); /* Slightly darkens the image for text readability */
+    filter: brightness(80%); 
 }
 
 .profile-text {
-    position: relative; /* Brings text above the image */
+    position: relative; 
     z-index: 10;
-    color: #fff; /* White text for contrast against the image */
+    color: #fff; 
     text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.2); /* Subtle dark overlay for text */
+    background-color: rgba(0, 0, 0, 0.2); 
     border-radius: 8px;
 }
 
 .profile-text h1 {
-    font-size: 3.5rem; /* Larger heading */
+    font-size: 3.5rem; 
     margin-bottom: 10px;
-    color: #fff; /* Ensure h1 is white */
+    color: #fff; 
 }
 
 .profile-text h4 {
     font-size: 1.4rem;
     font-weight: normal;
-    color: #f0f0f0; /* Slightly off-white for the subheading */
+    color: #f0f0f0; 
 }
 
 /* === Main Content Area === */
 .container {
-    max-width: 850px; /* A comfortable reading width */
-    margin: 40px auto; /* Centers the content */
-    padding: 0 20px; /* Padding on the sides */
+    max-width: 850px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
 }
 
 section {
-    margin-bottom: 40px; /* Space between sections */
-    padding-top: 20px; /* Space for the navbar link to scroll to */
+    margin-bottom: 40px; 
+    padding-top: 20px; /* IMPORTANT: Keeps space for anchor links */
 }
 
 h2 {
@@ -123,7 +122,7 @@ p {
 }
 
 a {
-    color: #005a9c; /* Blue color for links */
+    color: #005a9c; 
     text-decoration: none;
 }
 
@@ -138,30 +137,85 @@ strong {
 /* === Styled Project Grid === */
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two-column layout */
+    grid-template-columns: 1fr 1fr; 
     gap: 25px;
 }
 
 .project-item {
     border-radius: 8px;
     text-align: left;
-    background-color: #fff; /* White cards stand out from grey background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    background-color: #fff; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
     transition: box-shadow 0.3s ease;
 }
 
 .project-item:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Lifts the card on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
 }
 
 .project-item img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px 8px 0 0; /* Rounds the top corners */
+    border-radius: 8px 8px 0 0; 
 }
 
 .project-item p {
     font-size: 0.95rem;
     color: #444;
     padding: 20px;
+}
+
+/* === NEW: Publications List Style === */
+.publications-list {
+    list-style-type: none; /* Removes bullet points */
+    padding-left: 0;
+}
+
+.publications-list li {
+    font-size: 1.1rem;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* === NEW: Contact Links Styles === */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to stack on small screens */
+    gap: 15px; /* Space between the link buttons */
+    justify-content: center; /* Center the buttons */
+    padding-top: 10px;
+}
+
+.contact-link {
+    display: inline-flex; /* Aligns icon and text */
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #333;
+    background-color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-link:hover {
+    transform: translateY(-2px); /* Lifts the button slightly */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: #005a9c; /* Change text color on hover */
+}
+
+.contact-link i {
+    font-size: 1.3rem;
+    width: 30px; /* Gives the text consistent spacing */
+    margin-right: 10px;
+    text-align: center;
+    color: #005a9c; /* Makes icons blue */
+}
+
+.contact-link:hover i {
+    color: #004a7c; /* Darker blue on hover */
 }
