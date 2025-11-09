@@ -165,7 +165,7 @@ strong {
     padding: 20px;
 }
 
-/* === NEW: Publications List Style === */
+/* === UPDATED: Publications List Style === */
 .publications-list {
     list-style-type: none; /* Removes bullet points */
     padding-left: 0;
@@ -173,13 +173,51 @@ strong {
 
 .publications-list li {
     font-size: 1.1rem;
-    padding: 20px;
+    padding: 25px; /* Increased padding */
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px; /* --- ADDED: Space between publication cards --- */
 }
 
-/* === NEW: Contact Links Styles === */
+/* === NEW: Styles for Publication Cards === */
+.pub-type {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pub-title {
+    font-size: 1.5rem; /* Larger title */
+    font-weight: bold;
+    margin: 5px 0 10px 0;
+}
+
+.pub-title a {
+    color: #005a9c; /* Standard link color */
+    text-decoration: none;
+}
+
+.pub-title a:hover {
+    text-decoration: underline;
+}
+
+.pub-authors {
+    font-size: 1rem;
+    color: #444;
+    margin: 0;
+}
+
+.pub-conference {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0 0 0;
+}
+
+
+/* === Contact Links Styles === */
 .contact-links {
     display: flex;
     flex-wrap: wrap; /* Allows links to stack on small screens */
