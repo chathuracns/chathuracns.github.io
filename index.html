@@ -46,7 +46,7 @@
 
         /* --- NAVBAR --- */
         .navbar {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 1rem 5%;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
@@ -55,14 +55,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* Allows items to wrap on small screens */
+            flex-wrap: wrap; 
         }
 
         .navbar-brand a {
             font-size: 1.2rem;
             font-weight: bold;
             color: #222;
-            text-decoration: none;
         }
 
         .navbar-links ul {
@@ -75,42 +74,45 @@
             color: #555;
             font-weight: 600;
             font-size: 0.95rem;
-            text-decoration: none;
         }
 
         .navbar-links a:hover {
             color: #000;
         }
 
-        /* --- PROFILE HEADER --- */
+        /* --- HERO PROFILE HEADER (UPDATED) --- */
         .profile-header {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            padding: 4rem 5%;
-            background-color: #f4f4f4;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            align-items: center; 
+            justify-content: center; 
+            height: 65vh; 
+            min-height: 400px;
+            padding: 0 5%;
+            text-align: center;
+            color: white; 
+            
+            /* UPDATED: Removed linear-gradient overlay */
+            background-image: url("https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/website2.png");
+            
+            background-size: cover; 
+            background-position: center top; 
+            background-repeat: no-repeat;
         }
 
         .profile-text h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
+            /* Kept text shadow so text remains readable on the raw image */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
 
         .profile-text h4 {
             font-weight: 400;
-            color: #555;
-            max-width: 600px;
+            color: #fff;
+            max-width: 700px;
+            margin: 0 auto; 
+            font-size: 1.3rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
 
         /* --- MAIN CONTAINER --- */
@@ -122,7 +124,7 @@
 
         section {
             margin-top: 4rem;
-            padding-top: 1rem; /* Offset for sticky header anchor linking */
+            padding-top: 1rem;
             border-bottom: 1px solid #eee;
             padding-bottom: 2rem;
         }
@@ -139,15 +141,15 @@
             padding-left: 1rem;
         }
 
-        p {
+        /* --- TEXT ALIGNMENT (BOXY SHAPE) --- */
+        p, li {
             margin-bottom: 1.2rem;
-            text-align: justify;
+            text-align: justify; 
         }
 
         /* --- PROJECTS GRID --- */
         .projects-grid {
             display: grid;
-            /* This creates a responsive grid automatically */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
@@ -173,17 +175,19 @@
 
         .project-item p {
             padding: 1rem;
-            text-align: center;
+            text-align: center; 
             font-weight: bold;
             margin-bottom: 0;
         }
 
-        /* --- LISTS --- */
-        .publications-list li, .honors-list li, .certifications-list li {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px dotted #ccc;
-            list-style-type: none; /* Removed bullets for cleaner look */
+        /* --- SIMPLE LISTS --- */
+        .simple-list {
+            padding-left: 20px;
+        }
+
+        .simple-list li {
+            margin-bottom: 0.8rem;
+            text-align: justify;
         }
 
         .pub-title {
@@ -213,18 +217,15 @@
             border-radius: 30px;
             color: #333;
             font-weight: bold;
-            text-decoration: none;
         }
 
         .contact-link:hover {
             background: #0056b3;
             color: white;
-            text-decoration: none;
         }
 
-        /* --- MOBILE RESPONSIVENESS (MEDIA QUERIES) --- */
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            /* Adjust Navbar */
             .navbar {
                 flex-direction: column;
                 padding: 1rem;
@@ -241,38 +242,17 @@
                 font-size: 0.9rem;
             }
 
-            /* Adjust Profile Header */
             .profile-header {
-                flex-direction: column;
-                text-align: center;
-                padding: 2rem 1rem;
-                gap: 1.5rem;
-            }
-
-            .profile-image {
-                width: 150px;
-                height: 150px;
+                height: 50vh;
+                padding: 0 1rem;
             }
 
             .profile-text h1 {
-                font-size: 1.8rem;
-            }
-
-            .profile-text h4 {
-                font-size: 1rem;
-            }
-
-            /* General Mobile Adjustments */
-            .container {
-                padding: 0 1rem 2rem 1rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
             
-            p {
-                text-align: left; /* Easier to read on mobile than justify */
+            .profile-text h4 {
+                font-size: 1.1rem;
             }
 
             .contact-links {
@@ -305,12 +285,10 @@
         </nav>
     </header>
 
-    
     <div class="profile-header">
-        <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/website2.png" alt="Chathura Nirmal Weerasinghe Profile Image" class="profile-image">
         <div class="profile-text">
             <h1><em>Chathura Nirmal Weerasinghe</em></h1>
-            <h4><em>Passionate in Assertive Augmentation | Human Computer Interaction | Embedded Machine Learning</em></h4>
+            <h4><em>Passionate in wearables | Human Computer Interaction | Embedded Machine Learning</em></h4>
         </div>
     </div>
     
@@ -319,7 +297,7 @@
         <section id="biography" class="about">
             <h2><em>Biography</em></h2>
             <p>
-                I’m <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe"><em>Chathura Nirmal Weerasinghe</em></a>. An Electronic Engineering Undergraduate, specializing in Biomedical Engineering at the University of Moratuwa. I am passionate about <strong>Human-Computer Interaction, Assertive Augmentation,</strong> and <strong>Embedded Machine Learning.</strong>
+                I’m <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe"><em>Chathura Nirmal Weerasinghe</em></a>. An Electronic Engineering Undergraduate, specializing in Biomedical Engineering at the University of Moratuwa. I am passionate about <strong>Human-Computer Interaction, wearables,</strong> and <strong>Embedded Machine Learning.</strong>
             </p>
             <p>
                 One of my notable projects received a grant from the World Bank. Using ultrasound technology, our team developed a patient height-measuring device for Sri Lankan clinical systems. We successfully addressed the challenge of low reflections due to dense scalp hair by employing a K-means clustering algorithm. This project, known as <a href="https://measureup.lk/"><em>MeasureUP</em></a>, was commercially launched as a startup and received support from the World Bank-funded AHEAD program. Under the guidance of Dr. Ajith Pasqual, I gained comprehensive experience in medical product development, from prototyping to navigating regulatory requirements and intellectual property considerations.
@@ -372,21 +350,18 @@
 
         <section id="publications">
             <h2><em>Publications</em></h2>
-            <ul class="publications-list">
-                
+            <ul class="simple-list">
                 <li>
                     <h4 class="pub-title">
                         <a href="https://doi.org/10.1145/3749385.3749418" target="_blank">
                             VibroBits: Visualising Body Centre of Pressure Using Vibrotactile Feedback for Sports Training
                         </a>
                     </h4>
-            
                     <p class="pub-authors">
                         <strong> Chathura Nirmal Weerasinghe </strong>, Ruchira Abeywardhane, Uvindu Kodikara, Sasindu Abewickrema, Nihar Sabnis, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
                         • SportsHCI '25: Proceedings of the First Annual Conference on Human-Computer Interaction and Sports • November 2025
                     </p>
                 </li>
-                
                 <li>
                     <h4 class="pub-title">
                         <a href="https://doi.org/10.1145/3749385.3749413" target="_blank">
@@ -398,86 +373,36 @@
                         • SportsHCI '25: Proceedings of the First Annual Conference on Human-Computer Interaction and Sports • November 2025
                     </p>
                 </li>
-                
             </ul>
         </section>
 
         <section id="honors">
             <h2><em>Honors & Awards</em></h2>
-            <ul class="honors-list">
-                
-                <li>
-                    <p>
-                         <strong> Bronze Medalist </strong> at the Sri Lankan Mathematics Olympiad Competition - 2019
-                    </p>
-                </li>
-                
-               <li>
-                    <p>
-                         <strong> Bronze Medalist </strong> at the Sri Lankan Physics Olympiad Competition - 2019
-                    </p>
-                </li>
-                
-                <li>
-                    <p>
-                         <strong> Finalist </strong> at the Sri Lankan Chemistry Olympiad Competition - 2019
-                    </p>
-                </li>
-                <li>
-                    <p>
-                         <strong> A Winner </strong> at the National Statistics Olympiad Competition - 2019
-                    </p>
-                </li>
-                <li>
-                    <p>
-                         <strong> A Winner </strong> at the National Statistics Olympiad Competition - 2018
-                    </p>
-                </li>
-                <li>
-                    <p>
-                         <strong> Won the 9th place under the senior category </strong> Represented Sri Lanka at 12th statistics olympiad. Issued by C. R. Rao Advanced Institute of Mathematics, Statistics and Computer Science (AIMSCS), University of Hyderabad Campus, Hyderabad
-                    </p>
-                </li>
-                
+            <ul class="simple-list">
+                <li><strong>Bronze Medalist</strong> at the Sri Lankan Mathematics Olympiad Competition - 2019</li>
+                <li><strong>Bronze Medalist</strong> at the Sri Lankan Physics Olympiad Competition - 2019</li>
+                <li><strong>Finalist</strong> at the Sri Lankan Chemistry Olympiad Competition - 2019</li>
+                <li><strong>A Winner</strong> at the National Statistics Olympiad Competition - 2019</li>
+                <li><strong>A Winner</strong> at the National Statistics Olympiad Competition - 2018</li>
+                <li><strong>Won the 9th place under the senior category</strong> Represented Sri Lanka at 12th statistics olympiad. Issued by C. R. Rao Advanced Institute of Mathematics, Statistics and Computer Science (AIMSCS), University of Hyderabad Campus, Hyderabad</li>
             </ul>
         </section>
 
         <section id="certifications">
             <h2><em>Licenses & Certifications</em></h2>
-            <ul class="certifications-list">
-                
+            <ul class="simple-list">
                 <li>
-                    <p>
-                        <strong>Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization</strong><br>
-                        DeepLearning.AI • Issued Jun 2024<br>
-                        <a href="https://www.coursera.org/account/accomplishments/records/NSNDL2ZSAQHP" target="_blank">Show credential (ID: NSNDL2ZSAQHP)</a>
-                    </p>
+                    <strong>Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization</strong> - DeepLearning.AI (Jun 2024) - <a href="https://www.coursera.org/account/accomplishments/records/NSNDL2ZSAQHP" target="_blank">ID: NSNDL2ZSAQHP</a>
                 </li>
-
                 <li>
-                    <p>
-                        <strong>Neural Networks and Deep Learning</strong><br>
-                        DeepLearning.AI • Issued Jun 2024<br>
-                        <a href="https://www.coursera.org/account/accomplishments/records/93TVAQH9GYHQ" target="_blank">Show credential (ID: 93TVAQH9GYHQ)</a>
-                    </p>
+                    <strong>Neural Networks and Deep Learning</strong> - DeepLearning.AI (Jun 2024) - <a href="https://www.coursera.org/account/accomplishments/records/93TVAQH9GYHQ" target="_blank">ID: 93TVAQH9GYHQ</a>
                 </li>
-
                 <li>
-                    <p>
-                        <strong>Structuring Machine Learning Projects</strong><br>
-                        DeepLearning.AI • Issued Jun 2024<br>
-                        <a href="https://www.coursera.org/account/accomplishments/records/RPFERV8MJQ72" target="_blank">Show credential (ID: RPFERV8MJQ72)</a>
-                    </p>
+                    <strong>Structuring Machine Learning Projects</strong> - DeepLearning.AI (Jun 2024) - <a href="https://www.coursera.org/account/accomplishments/records/RPFERV8MJQ72" target="_blank">ID: RPFERV8MJQ72</a>
                 </li>
-
                 <li>
-                    <p>
-                        <strong>Public Speaking Course for Young Adults</strong><br>
-                        American Corner Kandy • Issued Mar 2023<br>
-                        <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/certifications/1723379874210/single-media-viewer?type=IMAGE&profileId=ACoAADYPmsgBDxATZnMBMFcJtfSfmUgngpdZ4SU&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BTrFd%2BAGR8mexp52bRrXgg%3D%3D" target="_blank">View Certificate</a>
-                    </p>
+                    <strong>Public Speaking Course for Young Adults</strong> - American Corner Kandy (Mar 2023) - <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/certifications/1723379874210/single-media-viewer?type=IMAGE&profileId=ACoAADYPmsgBDxATZnMBMFcJtfSfmUgngpdZ4SU&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BTrFd%2BAGR8mexp52bRrXgg%3D%3D" target="_blank">View Certificate</a>
                 </li>
-
             </ul>
         </section>
 
