@@ -535,11 +535,33 @@
         const menu = document.getElementById("mobileMenu");
         menu.classList.toggle("active");
     }
+    
+    // 1. Close menu automatically when clicking any menu link
+    document.querySelectorAll("#mobileMenu a").forEach(item => {
+        item.addEventListener("click", () => {
+            document.getElementById("mobileMenu").classList.remove("active");
+        });
+    });
+    
+    // 2. Close menu when clicking outside the menu or hamburger
+    document.addEventListener("click", function(event) {
+        const menu = document.getElementById("mobileMenu");
+        const hamburger = document.querySelector(".hamburger");
+    
+        // If menu is open AND clicked outside both menu and hamburger → close it
+        if (menu.classList.contains("active") &&
+            !menu.contains(event.target) &&
+            !hamburger.contains(event.target)) 
+        {
+            menu.classList.remove("active");
+        }
+    });
     </script>
 
 </body>
 
 </html>
+
 
 
 
