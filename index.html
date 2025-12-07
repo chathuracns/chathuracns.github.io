@@ -290,6 +290,49 @@
                 justify-content: center;
             }
         }
+         /* --- Mobile Dropdown Menu --- */
+            .navbar-links {
+                transition: max-height 0.3s ease;
+            }
+            
+            @media (max-width: 768px) {
+            
+                .navbar {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            
+                /* Hide the normal horizontal menu */
+                .navbar-links ul {
+                    flex-direction: column;
+                    width: 100%;
+                    padding: 1rem 0;
+                }
+            
+                .navbar-links {
+                    width: 100%;
+                    overflow: hidden;
+                    max-height: 0; /* hidden by default */
+                }
+            
+                /* Show hamburger icon on mobile */
+                .hamburger {
+                    display: block;
+                    color: #333;
+                }
+            
+                /* When active, menu expands */
+                .navbar-links.active {
+                    max-height: 400px; 
+                    background: white;
+                    border-top: 1px solid #ddd;
+                }
+            
+                .navbar-links ul li {
+                    text-align: center;
+                    padding: 0.8rem 0;
+                }
+            }
     </style>
 </head>
 <body>
@@ -298,7 +341,14 @@
         <div class="navbar-brand">
             <a href="#"><em>Chathura Nirmal Weerasinghe</em></a>
         </div>
-        <nav class="navbar-links">
+    
+        <!-- HAMBURGER ICON -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    
+        <!-- NAV LINKS -->
+        <nav class="navbar-links" id="mobileMenu">
             <ul>
                 <li><a href="#biography">Biography</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -310,6 +360,7 @@
             </ul>
         </nav>
     </header>
+
 
     <div class="profile-header parallax-container">
         <div class="parallax-bg"></div>
@@ -479,9 +530,17 @@
         img.style.transform = `translateY(${yOffset}px) scale(${scale})`;
     });
     </script>
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("active");
+    }
+    </script>
+
 </body>
 
 </html>
+
 
 
 
