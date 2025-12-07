@@ -99,6 +99,31 @@
             background-position: center top; 
             background-repeat: no-repeat;
         }
+        /* --- SCROLL ZOOM PARALLAX EFFECT --- */
+        .parallax-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url("https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/website2.png");
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            transform-origin: center;
+            z-index: 1;
+        
+            /* starting size */
+            transform: scale(1.1);
+        }
+        
+        .parallax-container .profile-text {
+            position: relative;
+            z-index: 5; /* text stays above image */
+        }
+
 
         .profile-text h1 {
             font-size: 3rem;
@@ -286,12 +311,14 @@
         </nav>
     </header>
 
-    <div class="profile-header">
+    <div class="profile-header parallax-container">
+        <div class="parallax-bg"></div>
         <div class="profile-text">
             <h1><em>Chathura Nirmal Weerasinghe</em></h1>
             <h4><em>Passionate in Wearables | Human Computer Interaction | Embedded Machine Learning</em></h4>
         </div>
     </div>
+
     
     <div class="container">
 
@@ -435,8 +462,26 @@
         </section>
 
     </div> 
+    <script>
+    window.addEventListener("scroll", function () {
+    
+        const scrolled = window.scrollY;
+        const img = document.querySelector(".parallax-bg");
+    
+        if (!img) return;
+    
+        // How many pixels to move the image
+        const yOffset = scrolled * 0.25;   // Lower = slower parallax
+    
+        // How much to zoom based on scroll
+        const scale = 1.1 + scrolled * 0.0002; 
+    
+        img.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+    });
+    </script>
 </body>
 
 </html>
+
 
 
