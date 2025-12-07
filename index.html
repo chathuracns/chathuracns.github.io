@@ -557,10 +557,50 @@
         }
     });
     </script>
+    <script>
+    // Smooth scroll with dynamic offset equal to navbar height
+    document.querySelectorAll('.navbar-links a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+    
+            const navbar = document.querySelector('.navbar');
+            const menu = document.getElementById("mobileMenu");
+            const target = document.querySelector(this.getAttribute('href'));
+    
+            // Get real-time navbar height (changes on mobile)
+            const offset = navbar.offsetHeight;
+    
+            // Where to scroll = section top minus current navbar height
+            const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    
+            window.scrollTo({
+                top: position,
+                behavior: "smooth"
+            });
+    
+            // Close menu after clicking
+            menu.classList.remove("active");
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener("click", function(event) {
+        const menu = document.getElementById("mobileMenu");
+        const hamburger = document.querySelector(".hamburger");
+    
+        if (menu.classList.contains("active") &&
+            !menu.contains(event.target) &&
+            !hamburger.contains(event.target)) {
+            menu.classList.remove("active");
+        }
+    });
+    </script>
+
 
 </body>
 
 </html>
+
 
 
 
