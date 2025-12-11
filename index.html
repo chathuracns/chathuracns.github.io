@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chathura Nirmal Weerasinghe</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
+
     <style>
         /* --- GLOBAL RESET & TYPOGRAPHY --- */
         * {
@@ -48,16 +50,16 @@
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
         }
-        
+
         .hamburger {
             display: none;
         }
@@ -88,27 +90,28 @@
         /* --- HERO PROFILE HEADER (UPDATED) --- */
         .profile-header {
             display: flex;
-            align-items: center; 
-            justify-content: center; 
-            height: 65vh; 
+            align-items: center;
+            justify-content: center;
+            height: 65vh;
             min-height: 400px;
             padding: 0 5%;
             text-align: center;
-            color: white; 
-            
+            color: white;
+
             /* UPDATED: Removed linear-gradient overlay */
             background-image: url("https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/website2.png");
-            
-            background-size: cover; 
-            background-position: center top; 
+
+            background-size: cover;
+            background-position: center top;
             background-repeat: no-repeat;
         }
+
         /* --- SCROLL ZOOM PARALLAX EFFECT --- */
         .parallax-container {
             position: relative;
             overflow: hidden;
         }
-        
+
         .parallax-bg {
             position: absolute;
             inset: 0;
@@ -118,14 +121,15 @@
             background-repeat: no-repeat;
             transform-origin: center;
             z-index: 1;
-        
+
             /* starting size */
             transform: scale(1.1);
         }
-        
+
         .parallax-container .profile-text {
             position: relative;
-            z-index: 5; /* text stays above image */
+            z-index: 5;
+            /* text stays above image */
         }
 
 
@@ -133,16 +137,16 @@
             font-size: 3rem;
             margin-bottom: 0.5rem;
             /* Kept text shadow so text remains readable on the raw image */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .profile-text h4 {
             font-weight: 400;
             color: #fff;
             max-width: 700px;
-            margin: 0 auto; 
+            margin: 0 auto;
             font-size: 1.3rem;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
         }
 
         /* --- MAIN CONTAINER --- */
@@ -172,9 +176,10 @@
         }
 
         /* --- TEXT ALIGNMENT (BOXY SHAPE) --- */
-        p, li {
+        p,
+        li {
             margin-bottom: 1.2rem;
-            text-align: justify; 
+            text-align: justify;
         }
 
         /* --- PROJECTS GRID --- */
@@ -194,7 +199,7 @@
 
         .project-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .project-item img {
@@ -205,9 +210,84 @@
 
         .project-item p {
             padding: 1rem;
-            text-align: center; 
+            text-align: center;
             font-weight: bold;
             margin-bottom: 0;
+        }
+
+        /* --- CREATIVE CAROUSEL --- */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            overflow: hidden;
+            padding: 40px 0;
+            /* Space for scaling */
+        }
+
+        .carousel-track {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: max-content;
+            /* Allow items to flow naturally */
+            will-change: transform;
+        }
+
+        .carousel-item {
+            width: 200px;
+            /* Fixed base width */
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: all 0.5s ease;
+            opacity: 0.5;
+            transform: scale(0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            transform: scale(1.4);
+            /* Make center significantly larger */
+            z-index: 10;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 20;
+            color: #333;
+            font-size: 1.2rem;
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: #f0f0f0;
+            color: #0056b3;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
         }
 
         /* --- SIMPLE LISTS --- */
@@ -260,7 +340,7 @@
                 flex-direction: column;
                 padding: 1rem;
             }
-            
+
             .navbar-brand {
                 margin-bottom: 1rem;
             }
@@ -280,7 +360,7 @@
             .profile-text h1 {
                 font-size: 2rem;
             }
-            
+
             .profile-text h4 {
                 font-size: 1.1rem;
             }
@@ -289,72 +369,76 @@
                 flex-direction: column;
                 width: 100%;
             }
-            
+
             .contact-link {
                 justify-content: center;
             }
         }
-         /* --- Mobile Dropdown Menu --- */
-            .navbar-links {
-                transition: max-height 0.3s ease;
-            }
-            
-            @media (max-width: 768px) {
-            
-                .navbar {
-                    flex-direction: row;
-                    justify-content: space-between;
-                }
-            
-                /* Hide the normal horizontal menu */
-                .navbar-links ul {
-                    flex-direction: column;
-                    width: 100%;
-                    padding: 1rem 0;
-                }
-            
-                .navbar-links {
-                    width: 100%;
-                    overflow: hidden;
-                    max-height: 0; /* hidden by default */
-                }
-            
-                /* Show hamburger icon on mobile */
-                .hamburger {
-                    display: block;
-                    color: #333;
-                }
-            
-                /* When active, menu expands */
-                .navbar-links.active {
-                    max-height: 400px; 
-                    background: white;
-                    border-top: 1px solid #ddd;
-                }
-            
-                .navbar-links ul li {
-                    text-align: center;
-                    padding: 0.8rem 0;
-                }
-                .hamburger {
-                    display: block;
-                }
 
+        /* --- Mobile Dropdown Menu --- */
+        .navbar-links {
+            transition: max-height 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
             }
+
+            /* Hide the normal horizontal menu */
+            .navbar-links ul {
+                flex-direction: column;
+                width: 100%;
+                padding: 1rem 0;
+            }
+
+            .navbar-links {
+                width: 100%;
+                overflow: hidden;
+                max-height: 0;
+                /* hidden by default */
+            }
+
+            /* Show hamburger icon on mobile */
+            .hamburger {
+                display: block;
+                color: #333;
+            }
+
+            /* When active, menu expands */
+            .navbar-links.active {
+                max-height: 400px;
+                background: white;
+                border-top: 1px solid #ddd;
+            }
+
+            .navbar-links ul li {
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+        }
     </style>
 </head>
+
 <body>
 
     <header class="navbar">
         <div class="navbar-brand">
             <a href="#"><em>Chathura Nirmal Weerasinghe</em></a>
         </div>
-    
+
         <!-- HAMBURGER ICON -->
         <div class="hamburger" onclick="toggleMenu()">
             <i class="fa-solid fa-bars"></i>
         </div>
-    
+
         <!-- NAV LINKS -->
         <nav class="navbar-links" id="mobileMenu">
             <ul>
@@ -378,64 +462,133 @@
         </div>
     </div>
 
-    
+
     <div class="container">
 
         <section id="biography" class="about">
             <h2><em>Biography</em></h2>
             <p>
-                I’m <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe"><em>Chathura Nirmal Weerasinghe</em></a>. An Electronic Engineering Undergraduate, specializing in Biomedical Engineering at the University of Moratuwa. I am passionate about <strong>Human-Computer Interaction, wearables,</strong> and <strong>Embedded Machine Learning.</strong>
+                I’m <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe"><em>Chathura Nirmal
+                        Weerasinghe</em></a>. An Electronic Engineering Undergraduate, specializing in Biomedical
+                Engineering at the University of Moratuwa. I am passionate about <strong>Human-Computer Interaction,
+                    wearables,</strong> and <strong>Embedded Machine Learning.</strong>
             </p>
             <p>
-                One of my notable projects received a grant from the World Bank. Using ultrasound technology, our team developed a patient height-measuring device for Sri Lankan clinical systems. We successfully addressed the challenge of low reflections due to dense scalp hair by employing a K-means clustering algorithm. This project, known as <a href="https://measureup.lk/"><em>MeasureUP</em></a>, was commercially launched as a startup and received support from the World Bank-funded AHEAD program. Under the guidance of Dr. Ajith Pasqual, I gained comprehensive experience in medical product development, from prototyping to navigating regulatory requirements and intellectual property considerations.
+                One of my notable projects received a grant from the World Bank. Using ultrasound technology, our team
+                developed a patient height-measuring device for Sri Lankan clinical systems. We successfully addressed
+                the challenge of low reflections due to dense scalp hair by employing a K-means clustering algorithm.
+                This project, known as <a href="https://measureup.lk/"><em>MeasureUP</em></a>, was commercially launched
+                as a startup and received support from the World Bank-funded AHEAD program. Under the guidance of Dr.
+                Ajith Pasqual, I gained comprehensive experience in medical product development, from prototyping to
+                navigating regulatory requirements and intellectual property considerations.
             </p>
             <p>
-                In my academic background, I received <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/honors/"><em>bronze medals for both the Physics and Mathematics Olympiad and secured the 9th place representing Sri Lanka at the 12th Statistics Olympiad in 2020</em></a>. For GCE Advanced level exam, I achieved 99th place out of 200,000+ candidates in Sri Lanka, with A’s in all four subjects Maths, Physics, Chemistry, and English.
+                In my academic background, I received <a
+                    href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/honors/"><em>bronze medals for
+                        both the Physics and Mathematics Olympiad and secured the 9th place representing Sri Lanka at
+                        the 12th Statistics Olympiad in 2020</em></a>. For GCE Advanced level exam, I achieved 99th
+                place out of 200,000+ candidates in Sri Lanka, with A’s in all four subjects Maths, Physics, Chemistry,
+                and English.
             </p>
             <p>
-                In my free time, I am interested in video and graphic designing, as well as scriptwriting and acting in dramas. Here, I have attached some of my dramas. Go and see "What the Sense of Humor through an Engineering Eye is." <a href="https://youtu.be/yPXYBtht1XQ?feature=shared"><em>1."Latha.AI"</em></a> , <a href="https://youtu.be/5t9_GxEX5Pk?feature=shared"><em>2."Parakiyana Tharuka"</em></a>.
+                In my free time, I am interested in video and graphic designing, as well as scriptwriting and acting in
+                dramas. Here, I have attached some of my dramas. Go and see "What the Sense of Humor through an
+                Engineering Eye is." <a href="https://youtu.be/yPXYBtht1XQ?feature=shared"><em>1."Latha.AI"</em></a> ,
+                <a href="https://youtu.be/5t9_GxEX5Pk?feature=shared"><em>2."Parakiyana Tharuka"</em></a>.
             </p>
         </section>
 
         <section id="experience">
             <h2><em>Experience</em></h2>
             <p>
-                I am a former Research Intern at the award-winning <a href="https://exertiongameslab.org/" target="_blank"><em>Exertion Games Lab</em></a> at Monash University, working under the supervision of <a href="https://research.monash.edu/en/persons/don-samitha-elvitigala" target="_blank"><em>Dr. Don Samitha Elvitigala</em></a> and <a href="https://www.florianfloydmueller.com/" target="_blank"><em>Prof. Florian 'Floyd' Mueller</em></a>. My tenure focused on developing novel wearable systems, notably 'VibroBits,' a vibrotactile feedback system for sports training demonstrated at <a href="https://doi.org/10.1145/3749385.3749418" target="_blank"><em>SportsHCI ’25</em></a>, for which I was the first author.
+                I am a former Research Intern at the award-winning <a href="https://exertiongameslab.org/"
+                    target="_blank"><em>Exertion Games Lab</em></a> at Monash University, working under the supervision
+                of <a href="https://research.monash.edu/en/persons/don-samitha-elvitigala" target="_blank"><em>Dr. Don
+                        Samitha Elvitigala</em></a> and <a href="https://www.florianfloydmueller.com/"
+                    target="_blank"><em>Prof. Florian 'Floyd' Mueller</em></a>. My tenure focused on developing novel
+                wearable systems, notably 'VibroBits,' a vibrotactile feedback system for sports training demonstrated
+                at <a href="https://doi.org/10.1145/3749385.3749418" target="_blank"><em>SportsHCI ’25</em></a>, for
+                which I was the first author.
             </p>
             <p>
-                Beyond my primary research, I provided technical engineering for several PhD initiatives: I developed a gaze aversion detection system using Tobii Eye-Trackers and embedded modules for <a href="https://www.nathalieoverdevest.com/understanding-embodied-remembering/" target="_blank"><em>Nathalie Overdevest's 'Embodied Remembering' project</em></a>, and prototyped wireless olfactory and thermal devices for <a href="https://exertiongameslab.org/projects/lucientry-a-lucid-dream-induction-system" target="_blank"><em>Poyao 'Cosmos' Wang’s lucid dream induction study</em></a>. Additionally, I designed AR navigation systems using HoloLens 2 for <a href="https://www.linkedin.com/in/linjia-he-90123b323" target="_blank"><em>Linjia He’s research on cyclist attention</em></a>, while also assisting in the associated systematic review. Throughout the internship, I executed full-cycle research workflows from gap analysis to manuscript revision and actively engaged in the lab’s scholarly culture.
+                Beyond my primary research, I provided technical engineering for several PhD initiatives: I developed a
+                gaze aversion detection system using Tobii Eye-Trackers and embedded modules for <a
+                    href="https://www.nathalieoverdevest.com/understanding-embodied-remembering/"
+                    target="_blank"><em>Nathalie Overdevest's 'Embodied Remembering' project</em></a>, and prototyped
+                wireless olfactory and thermal devices for <a
+                    href="https://exertiongameslab.org/projects/lucientry-a-lucid-dream-induction-system"
+                    target="_blank"><em>Poyao 'Cosmos' Wang’s lucid dream induction study</em></a>. Additionally, I
+                designed AR navigation systems using HoloLens 2 for <a
+                    href="https://www.linkedin.com/in/linjia-he-90123b323" target="_blank"><em>Linjia He’s research on
+                        cyclist attention</em></a>, while also assisting in the associated systematic review. Throughout
+                the internship, I executed full-cycle research workflows from gap analysis to manuscript revision and
+                actively engaged in the lab’s scholarly culture.
             </p>
+            <!-- Creative Carousel -->
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="movePrev()"><i class="fa-solid fa-chevron-left"></i></button>
+
+                <div class="carousel-track" id="experienceTrack">
+                    <img src="exp_arm_1.jpg" class="carousel-item" alt="Wearable Device 1">
+                    <img src="exp_device_close.jpg" class="carousel-item" alt="Device Close Up">
+                    <img src="exp_arm_2.jpg" class="carousel-item" alt="Wearable Device 2">
+                    <img src="exp_vibrobits_prototype.jpg" class="carousel-item active" alt="VibroBits Prototype">
+                    <!-- Start middle active -->
+                    <img src="exp_group_outdoor.jpg" class="carousel-item" alt="Outdoor Team">
+                    <img src="exp_green_sleeve.jpg" class="carousel-item" alt="Smart Sleeve">
+                    <img src="exp_yellow_insoles.jpg" class="carousel-item" alt="Smart Insoles">
+                </div>
+
+                <button class="carousel-btn next" onclick="moveNext()"><i
+                        class="fa-solid fa-chevron-right"></i></button>
+            </div>
         </section>
 
         <section id="projects" class="projects">
             <h2><em>Projects</em></h2>
-            
+
             <div class="projects-grid">
 
                 <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/FYP.png" alt="BCI Game Project">
-                    <p><a href="https://github.com/fyp21-bci/.github"><em>Brain–Computer Interface Game for a Locked-In Pediatric Patient (Ongoing)</em></a></p>
+                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/FYP.png"
+                        alt="BCI Game Project">
+                    <p><a href="https://github.com/fyp21-bci/.github"><em>Brain–Computer Interface Game for a Locked-In
+                                Pediatric Patient (Ongoing)</em></a></p>
                 </div>
 
-                
+
                 <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Measureup.png" alt="MeasureUP Project">
-                    <p><a href="https://github.com/chathuracns/Human-Height-Measuring-Under-Low-Ultrasound-Reflection-due-to-Dense-Scalp-Hair"><em>World Bank funded AHEAD Project to Develop a Portable BMI Measuring Device for Clinical Settings.</em></a></p>
+                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Measureup.png"
+                        alt="MeasureUP Project">
+                    <p><a
+                            href="https://github.com/chathuracns/Human-Height-Measuring-Under-Low-Ultrasound-Reflection-due-to-Dense-Scalp-Hair"><em>World
+                                Bank funded AHEAD Project to Develop a Portable BMI Measuring Device for Clinical
+                                Settings.</em></a></p>
                 </div>
-                
+
                 <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Zerogravity.png" alt="Zero G Project">
-                    <p><a href="https://github.com/chathuracns/Zero-G-Dynamic-Body-Weight-Support-System-Using-a-Motorized-Unloader"><em>Zero G Dynamic Body-Weight Support System Using a Motorized Unloader</em></a></p>
+                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Zerogravity.png"
+                        alt="Zero G Project">
+                    <p><a
+                            href="https://github.com/chathuracns/Zero-G-Dynamic-Body-Weight-Support-System-Using-a-Motorized-Unloader"><em>Zero
+                                G Dynamic Body-Weight Support System Using a Motorized Unloader</em></a></p>
                 </div>
-                
+
                 <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/ECG.png" alt="ECG Project">
-                    <p><a href="https://github.com/chathuracns/ECG-Signal-Extracting-and-Monitoring-Using-Analog-Electronics-and-wet-electrodes"><em>ECG Signal Extracting and Monitoring Using Analog Electronics and wet electrodes</em></a></p>
+                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/ECG.png"
+                        alt="ECG Project">
+                    <p><a
+                            href="https://github.com/chathuracns/ECG-Signal-Extracting-and-Monitoring-Using-Analog-Electronics-and-wet-electrodes"><em>ECG
+                                Signal Extracting and Monitoring Using Analog Electronics and wet electrodes</em></a>
+                    </p>
                 </div>
-                
+
                 <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/DenseScalp.png" alt="Human Height Project">
-                    <p><a href="https://github.com/chathuracns/Human-Height-Measuring-Under-Low-Ultrasound-Reflection-due-to-Dense-Scalp-Hair"><em>Human Height Measuring Under Low Ultrasound Reflection due to Dense Scalp Hair</em></a></p>
+                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/DenseScalp.png"
+                        alt="Human Height Project">
+                    <p><a
+                            href="https://github.com/chathuracns/Human-Height-Measuring-Under-Low-Ultrasound-Reflection-due-to-Dense-Scalp-Hair"><em>Human
+                                Height Measuring Under Low Ultrasound Reflection due to Dense Scalp Hair</em></a></p>
                 </div>
 
             </div>
@@ -447,12 +600,15 @@
                 <li>
                     <h4 class="pub-title">
                         <a href="https://doi.org/10.1145/3749385.3749418" target="_blank">
-                            VibroBits: Visualising Body Centre of Pressure Using Vibrotactile Feedback for Sports Training
+                            VibroBits: Visualising Body Centre of Pressure Using Vibrotactile Feedback for Sports
+                            Training
                         </a>
                     </h4>
                     <p class="pub-authors">
-                        <strong> Chathura Nirmal Weerasinghe </strong>, Ruchira Abeywardhane, Uvindu Kodikara, Sasindu Abewickrema, Nihar Sabnis, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
-                        • SportsHCI '25: Proceedings of the First Annual Conference on Human-Computer Interaction and Sports • November 2025
+                        <strong> Chathura Nirmal Weerasinghe </strong>, Ruchira Abeywardhane, Uvindu Kodikara, Sasindu
+                        Abewickrema, Nihar Sabnis, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
+                        • SportsHCI '25: Proceedings of the First Annual Conference on Human-Computer Interaction and
+                        Sports • November 2025
                     </p>
                 </li>
                 <li>
@@ -462,8 +618,10 @@
                         </a>
                     </h4>
                     <p class="pub-authors">
-                        Vincent van Rheden, Sasindu Abewickrema, Uvindu Kodikara, Ruchira Abeywardhane, <strong> Chathura Weerasinghe </strong>, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
-                        • SportsHCI '25: Proceedings of the First Annual Conference on Human-Computer Interaction and Sports • November 2025
+                        Vincent van Rheden, Sasindu Abewickrema, Uvindu Kodikara, Ruchira Abeywardhane, <strong>
+                            Chathura Weerasinghe </strong>, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
+                        • SportsHCI '25: Proceedings of the First Annual Conference on Human-Computer Interaction and
+                        Sports • November 2025
                     </p>
                 </li>
             </ul>
@@ -477,7 +635,9 @@
                 <li><strong>Finalist</strong> at the Sri Lankan Chemistry Olympiad Competition - 2019</li>
                 <li><strong>A Winner</strong> at the National Statistics Olympiad Competition - 2019</li>
                 <li><strong>A Winner</strong> at the National Statistics Olympiad Competition - 2018</li>
-                <li><strong>Won the 9th place under the senior category</strong> Represented Sri Lanka at 12th statistics olympiad. Issued by C. R. Rao Advanced Institute of Mathematics, Statistics and Computer Science (AIMSCS), University of Hyderabad Campus, Hyderabad</li>
+                <li><strong>Won the 9th place under the senior category</strong> Represented Sri Lanka at 12th
+                    statistics olympiad. Issued by C. R. Rao Advanced Institute of Mathematics, Statistics and Computer
+                    Science (AIMSCS), University of Hyderabad Campus, Hyderabad</li>
             </ul>
         </section>
 
@@ -485,16 +645,25 @@
             <h2><em>Licenses & Certifications</em></h2>
             <ul class="simple-list">
                 <li>
-                    <strong>Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization</strong> - DeepLearning.AI (Jun 2024) - <a href="https://www.coursera.org/account/accomplishments/records/NSNDL2ZSAQHP" target="_blank">ID: NSNDL2ZSAQHP</a>
+                    <strong>Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and
+                        Optimization</strong> - DeepLearning.AI (Jun 2024) - <a
+                        href="https://www.coursera.org/account/accomplishments/records/NSNDL2ZSAQHP" target="_blank">ID:
+                        NSNDL2ZSAQHP</a>
                 </li>
                 <li>
-                    <strong>Neural Networks and Deep Learning</strong> - DeepLearning.AI (Jun 2024) - <a href="https://www.coursera.org/account/accomplishments/records/93TVAQH9GYHQ" target="_blank">ID: 93TVAQH9GYHQ</a>
+                    <strong>Neural Networks and Deep Learning</strong> - DeepLearning.AI (Jun 2024) - <a
+                        href="https://www.coursera.org/account/accomplishments/records/93TVAQH9GYHQ" target="_blank">ID:
+                        93TVAQH9GYHQ</a>
                 </li>
                 <li>
-                    <strong>Structuring Machine Learning Projects</strong> - DeepLearning.AI (Jun 2024) - <a href="https://www.coursera.org/account/accomplishments/records/RPFERV8MJQ72" target="_blank">ID: RPFERV8MJQ72</a>
+                    <strong>Structuring Machine Learning Projects</strong> - DeepLearning.AI (Jun 2024) - <a
+                        href="https://www.coursera.org/account/accomplishments/records/RPFERV8MJQ72" target="_blank">ID:
+                        RPFERV8MJQ72</a>
                 </li>
                 <li>
-                    <strong>Public Speaking Course for Young Adults</strong> - American Corner Kandy (Mar 2023) - <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/certifications/1723379874210/single-media-viewer?type=IMAGE&profileId=ACoAADYPmsgBDxATZnMBMFcJtfSfmUgngpdZ4SU&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BTrFd%2BAGR8mexp52bRrXgg%3D%3D" target="_blank">View Certificate</a>
+                    <strong>Public Speaking Course for Young Adults</strong> - American Corner Kandy (Mar 2023) - <a
+                        href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/certifications/1723379874210/single-media-viewer?type=IMAGE&profileId=ACoAADYPmsgBDxATZnMBMFcJtfSfmUgngpdZ4SU&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BTrFd%2BAGR8mexp52bRrXgg%3D%3D"
+                        target="_blank">View Certificate</a>
                 </li>
             </ul>
         </section>
@@ -507,9 +676,9 @@
                     <span>Email</span>
                 </a>
                 <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=waU2EqsAAAAJ&gmla=AElLoL3yGTA8hKHkfYGGKGvFM3ptpNONn1cudL3CuzW3PmolzbMEPDdT9i_hkJXFrE248j9ODrkOg_JZ1VWf8JL194AvF3_DnKlS28_OvgJQEm4"
-                   class="contact-link" target="_blank">
-                  <i class="fa-solid fa-graduation-cap"></i>
-                  <span>Google Scholar</span>
+                    class="contact-link" target="_blank">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Google Scholar</span>
                 </a>
                 <a href="https://orcid.org/0009-0005-8288-937X" class="contact-link" target="_blank">
                     <i class="fa-brands fa-orcid"></i>
@@ -530,107 +699,229 @@
             </div>
         </section>
 
-    </div> 
+    </div>
     <script>
-    window.addEventListener("scroll", function () {
-    
-        const scrolled = window.scrollY;
-        const img = document.querySelector(".parallax-bg");
-    
-        if (!img) return;
-    
-        // How many pixels to move the image
-        const yOffset = scrolled * 0.25;   // Lower = slower parallax
-    
-        // How much to zoom based on scroll
-        const scale = 1.1 + scrolled * 0.0002; 
-    
-        img.style.transform = `translateY(${yOffset}px) scale(${scale})`;
-    });
-    </script>
-    <script>
-    function toggleMenu() {
-        const menu = document.getElementById("mobileMenu");
-        menu.classList.toggle("active");
-    }
-    
-    // 1. Close menu automatically when clicking any menu link
-    document.querySelectorAll("#mobileMenu a").forEach(item => {
-        item.addEventListener("click", () => {
-            document.getElementById("mobileMenu").classList.remove("active");
+        window.addEventListener("scroll", function () {
+
+            const scrolled = window.scrollY;
+            const img = document.querySelector(".parallax-bg");
+
+            if (!img) return;
+
+            // How many pixels to move the image
+            const yOffset = scrolled * 0.25;   // Lower = slower parallax
+
+            // How much to zoom based on scroll
+            const scale = 1.1 + scrolled * 0.0002;
+
+            img.style.transform = `translateY(${yOffset}px) scale(${scale})`;
         });
-    });
-    
-    // 2. Close menu when clicking outside the menu or hamburger
-    document.addEventListener("click", function(event) {
-        const menu = document.getElementById("mobileMenu");
-        const hamburger = document.querySelector(".hamburger");
-    
-        // If menu is open AND clicked outside both menu and hamburger → close it
-        if (menu.classList.contains("active") &&
-            !menu.contains(event.target) &&
-            !hamburger.contains(event.target)) 
-        {
-            menu.classList.remove("active");
-        }
-    });
     </script>
     <script>
-    // Smooth scroll with dynamic offset equal to navbar height
-    document.querySelectorAll('.navbar-links a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-    
-            const navbar = document.querySelector('.navbar');
+        function toggleMenu() {
             const menu = document.getElementById("mobileMenu");
-            const target = document.querySelector(this.getAttribute('href'));
-    
-            // Get real-time navbar height (changes on mobile)
-            const offset = navbar.offsetHeight;
-    
-            // Where to scroll = section top minus current navbar height
-            const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
-    
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
-    
-            // Close menu after clicking
-            menu.classList.remove("active");
-        });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener("click", function(event) {
-        const menu = document.getElementById("mobileMenu");
-        const hamburger = document.querySelector(".hamburger");
-    
-        if (menu.classList.contains("active") &&
-            !menu.contains(event.target) &&
-            !hamburger.contains(event.target)) {
-            menu.classList.remove("active");
+            menu.classList.toggle("active");
         }
-    });
+
+        // 1. Close menu automatically when clicking any menu link
+        document.querySelectorAll("#mobileMenu a").forEach(item => {
+            item.addEventListener("click", () => {
+                document.getElementById("mobileMenu").classList.remove("active");
+            });
+        });
+
+        // 2. Close menu when clicking outside the menu or hamburger
+        document.addEventListener("click", function (event) {
+            const menu = document.getElementById("mobileMenu");
+            const hamburger = document.querySelector(".hamburger");
+
+            // If menu is open AND clicked outside both menu and hamburger → close it
+            if (menu.classList.contains("active") &&
+                !menu.contains(event.target) &&
+                !hamburger.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
+    <script>
+        // Smooth scroll with dynamic offset equal to navbar height
+        document.querySelectorAll('.navbar-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const navbar = document.querySelector('.navbar');
+                const menu = document.getElementById("mobileMenu");
+                const target = document.querySelector(this.getAttribute('href'));
+
+                // Get real-time navbar height (changes on mobile)
+                const offset = navbar.offsetHeight;
+
+                // Where to scroll = section top minus current navbar height
+                const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: position,
+                    behavior: "smooth"
+                });
+
+                // Close menu after clicking
+                menu.classList.remove("active");
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+            const menu = document.getElementById("mobileMenu");
+            const hamburger = document.querySelector(".hamburger");
+
+            if (menu.classList.contains("active") &&
+                !menu.contains(event.target) &&
+                !hamburger.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
     </script>
 
 
+    <script>
+        /* --- FIXED OFFSET SMOOTH CAROUSEL LOGIC --- */
+        let autoPlayInterval;
+        const ITEM_WIDTH = 200;
+        const GAP = 20;
+        const TOTAL_ITEM_WIDTH = ITEM_WIDTH + GAP;
+        let isAnimating = false;
+
+        // Helper: Align the track so the Middle Item is centered in the container
+        function alignTrack(animate = false) {
+            const track = document.getElementById('experienceTrack');
+            const container = document.querySelector('.carousel-container');
+            const items = Array.from(track.children);
+
+            if (items.length === 0) return;
+
+            // We always want the middle item (index 3 for 7 items) to be effectively active/centered
+            const middleIndex = Math.floor(items.length / 2);
+
+            // Calculate where the center of that item is relative to the start of the track
+            // Left space = (Index * TotalWidth) + Half an Item
+            const trackItemCenter = (middleIndex * TOTAL_ITEM_WIDTH) + (ITEM_WIDTH / 2);
+
+            // Calculate center of container
+            const containerCenter = container.offsetWidth / 2;
+
+            // The transform needed to put that item center at container center
+            const offset = containerCenter - trackItemCenter;
+
+            if (animate) {
+                track.style.transition = "transform 0.5s ease-in-out";
+            } else {
+                track.style.transition = "none";
+            }
+
+            track.style.transform = `translateX(${offset}px)`;
+
+            // Update styling
+            items.forEach(item => item.classList.remove('active'));
+            if (items[middleIndex]) items[middleIndex].classList.add('active');
+
+            return offset;
+        }
+
+        function moveNext() {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            const track = document.getElementById('experienceTrack');
+            const baseOffset = alignTrack(false); // Get current centered position (no anim)
+
+            // 1. Prepare Next Active Item (Zoom Effect)
+            // Standard logic: current middle fades, next one grows.
+            const items = Array.from(track.children);
+            const middleIndex = Math.floor(items.length / 2);
+            items[middleIndex].classList.remove('active');
+            items[middleIndex + 1].classList.add('active');
+
+            // 2. Animate Track Left
+            // We move exactly one item width to the left
+            requestAnimationFrame(() => {
+                track.style.transition = "transform 0.5s ease-in-out";
+                track.style.transform = `translateX(${baseOffset - TOTAL_ITEM_WIDTH}px)`;
+            });
+
+            // 3. Cleanup after animation
+            setTimeout(() => {
+                track.style.transition = "none";
+                track.appendChild(track.firstElementChild); // Move first to last
+
+                // Re-Align instantly (because we changed DOM, the "new" middle needs to be centered)
+                // Since we moved the track physically left AND shifted DOM, realigning should put us visually close to same spot
+                alignTrack(false);
+
+                isAnimating = false;
+            }, 500);
+        }
+
+        function movePrev() {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            const track = document.getElementById('experienceTrack');
+
+            // 1. Instant Setup: Move last to first
+            // But we need to offset the track so it looks like nothing happened yet
+            track.prepend(track.lastElementChild);
+
+            // Get normal center, then shift it left by one item so visually we look like "before" the move
+            const baseOffset = alignTrack(false);
+            track.style.transition = "none";
+            // We want to start from "Left" of center so we can slide "Right" to center
+            track.style.transform = `translateX(${baseOffset - TOTAL_ITEM_WIDTH}px)`;
+
+            // Force Reflow
+            void track.offsetWidth;
+
+            // 2. Animate to Center
+            // Also Trigger Zoom
+            const items = Array.from(track.children);
+            const middleIndex = Math.floor(items.length / 2);
+            // We are moving TO the middle index
+            items.forEach(i => i.classList.remove('active'));
+            items[middleIndex].classList.add('active');
+
+            requestAnimationFrame(() => {
+                track.style.transition = "transform 0.5s ease-in-out";
+                track.style.transform = `translateX(${baseOffset}px)`;
+            });
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, 500);
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(moveNext, 3000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Init & Resize Handler
+        document.addEventListener("DOMContentLoaded", () => {
+            alignTrack(false);
+            startAutoPlay();
+
+            const container = document.querySelector('.carousel-container');
+            container.addEventListener('mouseenter', stopAutoPlay);
+            container.addEventListener('mouseleave', startAutoPlay);
+
+            // Re-center on resize
+            window.addEventListener('resize', () => {
+                if (!isAnimating) alignTrack(false);
+            });
+        });
+    </script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
