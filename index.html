@@ -290,6 +290,185 @@
             right: 10px;
         }
 
+        /* --- VIDEO CAROUSEL SPECIFIC --- */
+        .video-carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            /* Wider for video */
+            margin: 2rem auto;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .video-carousel-track {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: max-content;
+            will-change: transform;
+        }
+
+        .video-carousel-item {
+            width: 400px;
+            /* Wider cards for video */
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            opacity: 0.5;
+            transform: scale(0.85);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-carousel-item iframe {
+            width: 100%;
+            height: 225px;
+            /* 16:9 ratio approx */
+            border: none;
+        }
+
+        .video-info {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+
+        .video-info p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 0;
+            text-align: justify;
+        }
+
+        .video-carousel-item.active {
+            opacity: 1;
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- THUMBNAIL FACADE --- */
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 225px;
+            /* Match iframe height */
+            background-color: #000;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .video-thumbnail:hover img {
+            opacity: 1;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .video-thumbnail:hover .play-button {
+            background: #f00;
+            /* Youtube Red */
+            border-color: #f00;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-carousel-item iframe {
+            width: 100%;
+            height: 225px;
+            border: none;
+            display: block;
+            /* Ensures no gap */
+        }
+
+        /* --- THUMBNAIL FACADE --- */
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 225px;
+            /* Match iframe height */
+            background-color: #000;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .video-thumbnail:hover img {
+            opacity: 1;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .video-thumbnail:hover .play-button {
+            background: #f00;
+            /* Youtube Red */
+            border-color: #f00;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-carousel-item iframe {
+            width: 100%;
+            height: 225px;
+            border: none;
+            display: block;
+            /* Ensures no gap */
+        }
+
         /* --- SIMPLE LISTS --- */
         .simple-list {
             padding-left: 20px;
@@ -549,6 +728,59 @@
 
         <section id="projects" class="projects">
             <h2><em>Projects</em></h2>
+
+            <!-- Video Carousel -->
+            <div class="video-carousel-container">
+                <button class="carousel-btn prev" onclick="moveVideoPrev()"><i
+                        class="fa-solid fa-chevron-left"></i></button>
+
+                <div class="video-carousel-track" id="videoTrack">
+                    <!-- BLOCK 1 -->
+                    <div class="video-carousel-item">
+                        <div class="video-thumbnail" onclick="loadVideo(this, 'sQCjLG8IDWM')">
+                            <img src="https://img.youtube.com/vi/sQCjLG8IDWM/hqdefault.jpg" alt="Project Alpha Video">
+                            <div class="play-button"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="video-info">
+                            <h3>ECG Signal Monitoring System</h3>
+                            <p>Designed an analog circuit for ECG signal extraction using Right Leg Drive and
+                                multi-stage filtering. Analyzed Op-Amp parameters and validated filter effectiveness
+                                using FFT techniques.</p>
+                        </div>
+                    </div>
+
+                    <!-- BLOCK 2 -->
+                    <div class="video-carousel-item active">
+                        <div class="video-thumbnail" onclick="loadVideo(this, '7pyx1O3m0lo')">
+                            <img src="https://img.youtube.com/vi/7pyx1O3m0lo/hqdefault.jpg" alt="Project Beta Video">
+                            <div class="play-button"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Ultrasound Height Measurement</h3>
+                            <p>Developed a K-means clustering algorithm to classify ultrasound reflections from dense
+                                scalp hair, achieving 3cm accuracy. Addressed signal loss issues and preprocessed
+                                datasets for robust detection.</p>
+                        </div>
+                    </div>
+
+                    <!-- BLOCK 3 -->
+                    <div class="video-carousel-item">
+                        <div class="video-thumbnail" onclick="loadVideo(this, 'Jsa-tMu-xNg')">
+                            <img src="https://img.youtube.com/vi/Jsa-tMu-xNg/hqdefault.jpg" alt="Project Gamma Video">
+                            <div class="play-button"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="video-info">
+                            <h3>MeasureUP - Portable BMI Device</h3>
+                            <p>Led a World Bank-funded team to develop a cost-effective portable BMI device. Utilized
+                                K-means clustering for precision and managed FDA-compliant product design and
+                                documentation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-btn next" onclick="moveVideoNext()"><i
+                        class="fa-solid fa-chevron-right"></i></button>
+            </div>
 
             <div class="projects-grid">
 
@@ -922,6 +1154,132 @@
             // Re-center on resize
             window.addEventListener('resize', () => {
                 if (!isAnimating) alignTrack(false);
+            });
+        });
+    </script>
+    <script>
+        /* --- VIDEO CAROUSEL LOGIC --- */
+        // Separate scope/variables to avoid conflict with Experience carousel
+        const VIDEO_ITEM_WIDTH = 400; // Match CSS
+        const VIDEO_GAP = 20;
+        const VIDEO_TOTAL_WIDTH = VIDEO_ITEM_WIDTH + VIDEO_GAP;
+        let isVideoAnimating = false;
+
+        function alignVideoTrack(animate = false) {
+            const track = document.getElementById('videoTrack');
+            // If track is not found (e.g. if code runs before DOM, though we use DOMContentLoaded)
+            if (!track) return;
+
+            const container = document.querySelector('.video-carousel-container');
+            const items = Array.from(track.children);
+
+            if (items.length === 0) return;
+
+            const middleIndex = Math.floor(items.length / 2);
+            // Calculate center of that item relative to track start
+            const trackItemCenter = (middleIndex * VIDEO_TOTAL_WIDTH) + (VIDEO_ITEM_WIDTH / 2);
+            const containerCenter = container.offsetWidth / 2;
+            const offset = containerCenter - trackItemCenter;
+
+            if (animate) {
+                track.style.transition = "transform 0.5s ease-in-out";
+            } else {
+                track.style.transition = "none";
+            }
+
+            track.style.transform = `translateX(${offset}px)`;
+
+            items.forEach(item => item.classList.remove('active'));
+            if (items[middleIndex]) items[middleIndex].classList.add('active');
+
+            return offset;
+        }
+
+        // --- NEW LOADER FUNCTION FOR FACADE ---
+        function loadVideo(element, videoId) {
+            // 'element' is the .video-thumbnail div
+            // We want to replace it with the iframe
+            // Using youtube-nocookie and autoplay=1 so it plays immediately
+            element.innerHTML = `
+                <iframe width="560" height="315" 
+                    src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=1" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            `;
+            // Remove the 'onclick' so we don't trigger it again (though content is gone, it's safer)
+            element.onclick = null;
+            // Also ensure cursor changes back to default if needed, though replaced content handles it
+            element.style.cursor = 'default';
+        }
+
+        function moveVideoNext() {
+            if (isVideoAnimating) return;
+            isVideoAnimating = true;
+
+            const track = document.getElementById('videoTrack');
+            if (!track) return;
+
+            const baseOffset = alignVideoTrack(false);
+
+            const items = Array.from(track.children);
+            const middleIndex = Math.floor(items.length / 2);
+
+            // Zoom effect transition
+            if (items[middleIndex]) items[middleIndex].classList.remove('active');
+            if (items[middleIndex + 1]) items[middleIndex + 1].classList.add('active');
+
+            requestAnimationFrame(() => {
+                track.style.transition = "transform 0.5s ease-in-out";
+                track.style.transform = `translateX(${baseOffset - VIDEO_TOTAL_WIDTH}px)`;
+            });
+
+            setTimeout(() => {
+                track.style.transition = "none";
+                track.appendChild(track.firstElementChild);
+                alignVideoTrack(false);
+                isVideoAnimating = false;
+            }, 500);
+        }
+
+        function moveVideoPrev() {
+            if (isVideoAnimating) return;
+            isVideoAnimating = true;
+
+            const track = document.getElementById('videoTrack');
+            if (!track) return;
+
+            track.prepend(track.lastElementChild);
+
+            const baseOffset = alignVideoTrack(false);
+            track.style.transition = "none";
+            track.style.transform = `translateX(${baseOffset - VIDEO_TOTAL_WIDTH}px)`;
+
+            void track.offsetWidth; // Force Reflow
+
+            const items = Array.from(track.children);
+            const middleIndex = Math.floor(items.length / 2);
+            items.forEach(i => i.classList.remove('active'));
+            if (items[middleIndex]) items[middleIndex].classList.add('active');
+
+            requestAnimationFrame(() => {
+                track.style.transition = "transform 0.5s ease-in-out";
+                track.style.transform = `translateX(${baseOffset}px)`;
+            });
+
+            setTimeout(() => {
+                isVideoAnimating = false;
+            }, 500);
+        }
+
+        // Init Video Carousel
+        document.addEventListener("DOMContentLoaded", () => {
+            // Need a slight delay or ensure layout is ready if sizes depend on container which might be fluid
+            setTimeout(() => alignVideoTrack(false), 100);
+
+            window.addEventListener('resize', () => {
+                if (!isVideoAnimating) alignVideoTrack(false);
             });
         });
     </script>
