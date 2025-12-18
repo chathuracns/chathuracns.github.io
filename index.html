@@ -719,6 +719,53 @@
                 display: block;
             }
 
+            /* --- Video Carousel Mobile Optimization --- */
+            .video-carousel-container {
+                max-width: 100%;
+                padding: 20px 0;
+            }
+
+            .video-carousel-item {
+                width: 280px; /* Smaller width for mobile */
+                transform: scale(0.9);
+            }
+
+            .video-carousel-item.active {
+                transform: scale(1);
+            }
+
+            .video-carousel-item iframe,
+            .video-thumbnail {
+                height: 158px; /* Maintain 16:9 ratio for 280px width */
+            }
+
+            .video-info {
+                padding: 0.75rem;
+            }
+
+            .video-info h3 {
+                font-size: 1rem;
+            }
+
+            .video-info p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .carousel-btn.prev {
+                left: 5px;
+            }
+
+            .carousel-btn.next {
+                right: 5px;
+            }
+
         }
     </style>
 </head>
@@ -1290,10 +1337,22 @@
     <script>
         /* --- VIDEO CAROUSEL LOGIC --- */
         // Separate scope/variables to avoid conflict with Experience carousel
-        const VIDEO_ITEM_WIDTH = 400; // Match CSS
-        const VIDEO_GAP = 20;
-        const VIDEO_TOTAL_WIDTH = VIDEO_ITEM_WIDTH + VIDEO_GAP;
         let isVideoAnimating = false;
+
+        function getVideoMetrics() {
+            const track = document.getElementById('videoTrack');
+            if (!track) return { itemWidth: 0, gap: 0, totalWidth: 0, items: [] };
+
+            const items = Array.from(track.children);
+            const firstItem = items[0];
+            const itemWidth = firstItem ? firstItem.offsetWidth : 0;
+
+            const styles = window.getComputedStyle(track);
+            const gapStr = (styles.columnGap || styles.gap || '0px');
+            const gap = parseFloat(gapStr) || 0;
+
+            return { itemWidth, gap, totalWidth: itemWidth + gap, items };
+        }
 
         function alignVideoTrack(animate = false) {
             const track = document.getElementById('videoTrack');
@@ -1301,13 +1360,13 @@
             if (!track) return;
 
             const container = document.querySelector('.video-carousel-container');
-            const items = Array.from(track.children);
+            const { itemWidth, totalWidth, items } = getVideoMetrics();
 
             if (items.length === 0) return;
 
             const middleIndex = Math.floor(items.length / 2);
             // Calculate center of that item relative to track start
-            const trackItemCenter = (middleIndex * VIDEO_TOTAL_WIDTH) + (VIDEO_ITEM_WIDTH / 2);
+            const trackItemCenter = (middleIndex * totalWidth) + (itemWidth / 2);
             const containerCenter = container.offsetWidth / 2;
             const offset = containerCenter - trackItemCenter;
 
@@ -1353,7 +1412,7 @@
 
             const baseOffset = alignVideoTrack(false);
 
-            const items = Array.from(track.children);
+            const { totalWidth, items } = getVideoMetrics();
             const middleIndex = Math.floor(items.length / 2);
 
             // Zoom effect transition
@@ -1362,7 +1421,7 @@
 
             requestAnimationFrame(() => {
                 track.style.transition = "transform 0.5s ease-in-out";
-                track.style.transform = `translateX(${baseOffset - VIDEO_TOTAL_WIDTH}px)`;
+                track.style.transform = `translateX(${baseOffset - totalWidth}px)`;
             });
 
             setTimeout(() => {
@@ -1384,7 +1443,8 @@
 
             const baseOffset = alignVideoTrack(false);
             track.style.transition = "none";
-            track.style.transform = `translateX(${baseOffset - VIDEO_TOTAL_WIDTH}px)`;
+            const { totalWidth } = getVideoMetrics();
+            track.style.transform = `translateX(${baseOffset - totalWidth}px)`;
 
             void track.offsetWidth; // Force Reflow
 
