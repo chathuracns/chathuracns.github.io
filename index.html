@@ -632,20 +632,37 @@
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
+
+            /* General text scaling for mobile */
+            body {
+                font-size: 15px;
+            }
+
+            p,
+            li {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
             .navbar {
                 flex-direction: column;
                 padding: 1rem;
             }
 
             .navbar-brand {
-                margin-bottom: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Reduced font size for navbar name to prevent wrapping */
+            .navbar-brand a {
+                font-size: 1.2rem;
             }
 
             .navbar-links ul {
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 10px;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .profile-header {
@@ -653,11 +670,22 @@
                 padding: 0 1rem;
             }
 
+            /* Reduced font size for profile name */
             .profile-text h1 {
-                font-size: 2rem;
+                font-size: 1.4rem;
             }
 
             .profile-text h4 {
+                font-size: 0.9rem;
+            }
+
+            /* Reduced topic (section header) font sizes */
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            /* Subheaders */
+            h3 {
                 font-size: 1.1rem;
             }
 
@@ -668,6 +696,7 @@
 
             .contact-link {
                 justify-content: center;
+                font-size: 0.9rem;
             }
         }
 
@@ -726,7 +755,8 @@
             }
 
             .video-carousel-item {
-                width: 280px; /* Smaller width for mobile */
+                width: 280px;
+                /* Smaller width for mobile */
                 transform: scale(0.9);
             }
 
@@ -736,7 +766,8 @@
 
             .video-carousel-item iframe,
             .video-thumbnail {
-                height: 158px; /* Maintain 16:9 ratio for 280px width */
+                height: 158px;
+                /* Maintain 16:9 ratio for 280px width */
             }
 
             .video-info {
@@ -1072,7 +1103,9 @@
     <!-- ACKNOWLEDGEMENT / QUOTE -->
     <section class="acknowledgement" aria-labelledby="ack-title">
         <div>
-            <blockquote class="ack-quote">My achievements are built on the foundation of free education, I am deeply grateful to the Government of Sri Lanka and to the taxpayers whose investment in Free education made these opportunities possible.</blockquote>
+            <blockquote class="ack-quote">My achievements are built on the foundation of free education, I am deeply
+                grateful to the Government of Sri Lanka and to the taxpayers whose investment in Free education made
+                these opportunities possible.</blockquote>
         </div>
     </section>
 
@@ -1085,7 +1118,8 @@
                     <i class="fa-solid fa-envelope"></i>
                     <span>Email</span>
                 </a>
-                <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=waU2EqsAAAAJ" target="_blank" class="footer-link-item">
+                <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=waU2EqsAAAAJ"
+                    target="_blank" class="footer-link-item">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span>Google Scholar</span>
                 </a>
@@ -1093,7 +1127,8 @@
                     <i class="fa-brands fa-orcid"></i>
                     <span>ORCID</span>
                 </a>
-                <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe" target="_blank" class="footer-link-item">
+                <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe" target="_blank"
+                    class="footer-link-item">
                     <i class="fa-brands fa-linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
