@@ -175,6 +175,8 @@
             padding-left: 1rem;
         }
 
+
+
         /* --- TEXT ALIGNMENT (BOXY SHAPE) --- */
         p,
         li {
@@ -190,8 +192,8 @@
         }
 
         .project-item {
-            background: #fff;
-            border: 1px solid #e0e0e0;
+            background: #f2f2f2;
+
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -312,10 +314,10 @@
         .video-carousel-item {
             width: 400px;
             /* Wider cards for video */
-            background: #fff;
+            background: #f2f2f2;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
             transition: all 0.5s ease;
             opacity: 0.5;
             transform: scale(0.85);
@@ -396,14 +398,14 @@
             justify-content: center;
             color: white;
             font-size: 1.5rem;
-            border: 2px solid white;
+
             transition: all 0.3s ease;
         }
 
         .video-thumbnail:hover .play-button {
             background: #f00;
             /* Youtube Red */
-            border-color: #f00;
+
             transform: translate(-50%, -50%) scale(1.1);
         }
 
@@ -415,61 +417,7 @@
             /* Ensures no gap */
         }
 
-        /* --- THUMBNAIL FACADE --- */
-        .video-thumbnail {
-            position: relative;
-            width: 100%;
-            height: 225px;
-            /* Match iframe height */
-            background-color: #000;
-            cursor: pointer;
-            overflow: hidden;
-        }
 
-        .video-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-        }
-
-        .video-thumbnail:hover img {
-            opacity: 1;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            border: 2px solid white;
-            transition: all 0.3s ease;
-        }
-
-        .video-thumbnail:hover .play-button {
-            background: #f00;
-            /* Youtube Red */
-            border-color: #f00;
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .video-carousel-item iframe {
-            width: 100%;
-            height: 225px;
-            border: none;
-            display: block;
-            /* Ensures no gap */
-        }
 
         /* --- SIMPLE LISTS --- */
         .simple-list {
@@ -700,6 +648,18 @@
             }
         }
 
+        /* --- SCROLL ANIMATION --- */
+        .hidden-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .show-element {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* --- Mobile Dropdown Menu --- */
         .navbar-links {
             transition: max-height 0.3s ease;
@@ -839,7 +799,7 @@
 
     <div class="container">
 
-        <section id="biography" class="about">
+        <section id="biography" class="about hidden-element">
             <h2><em>Biography</em></h2>
             <p>
                 I’m <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe"><em>Chathura Nirmal
@@ -872,7 +832,7 @@
             </p>
         </section>
 
-        <section id="experience">
+        <section id="experience" class="hidden-element">
             <h2><em>Experience</em></h2>
             <p>
                 I am a former Research Intern at the award-winning <a href="https://exertiongameslab.org/"
@@ -921,7 +881,7 @@
             </div>
         </section>
 
-        <section id="projects" class="projects">
+        <section id="projects" class="projects hidden-element">
             <h2><em>Projects</em></h2>
 
             <!-- Video Carousel -->
@@ -931,7 +891,7 @@
 
                 <div class="video-carousel-track" id="videoTrack">
                     <!-- BLOCK 1 -->
-                    <div class="video-carousel-item">
+                    <div class="video-carousel-item hidden-element">
                         <div class="video-thumbnail" onclick="loadVideo(this, 'sQCjLG8IDWM')">
                             <img src="https://img.youtube.com/vi/sQCjLG8IDWM/hqdefault.jpg" alt="Project Alpha Video">
                             <div class="play-button"><i class="fa-solid fa-play"></i></div>
@@ -959,7 +919,7 @@
                     </div>
 
                     <!-- BLOCK 3 -->
-                    <div class="video-carousel-item">
+                    <div class="video-carousel-item hidden-element">
                         <div class="video-thumbnail" onclick="loadVideo(this, 'Jsa-tMu-xNg')">
                             <img src="https://img.youtube.com/vi/Jsa-tMu-xNg/hqdefault.jpg" alt="Project Gamma Video">
                             <div class="play-button"><i class="fa-solid fa-play"></i></div>
@@ -979,7 +939,7 @@
 
             <div class="projects-grid">
 
-                <div class="project-item">
+                <div class="project-item hidden-element">
                     <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/FYP.png"
                         alt="BCI Game Project">
                     <p><a href="https://github.com/fyp21-bci/.github"><em>Brain–Computer Interface Game for a Locked-In
@@ -987,7 +947,7 @@
                 </div>
 
 
-                <div class="project-item">
+                <div class="project-item hidden-element">
                     <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Measureup.png"
                         alt="MeasureUP Project">
                     <p><a
@@ -996,7 +956,7 @@
                                 Settings.</em></a></p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item hidden-element">
                     <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Zerogravity.png"
                         alt="Zero G Project">
                     <p><a
@@ -1004,7 +964,7 @@
                                 G Dynamic Body-Weight Support System Using a Motorized Unloader</em></a></p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item hidden-element">
                     <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/ECG.png"
                         alt="ECG Project">
                     <p><a
@@ -1013,7 +973,7 @@
                     </p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item hidden-element">
                     <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/DenseScalp.png"
                         alt="Human Height Project">
                     <p><a
@@ -1024,7 +984,7 @@
             </div>
         </section>
 
-        <section id="publications">
+        <section id="publications" class="hidden-element">
             <h2><em>Publications</em></h2>
             <ul class="simple-list">
                 <li>
@@ -1057,7 +1017,7 @@
             </ul>
         </section>
 
-        <section id="honors">
+        <section id="honors" class="hidden-element">
             <h2><em>Honors & Awards</em></h2>
             <ul class="simple-list">
                 <li><strong>Bronze Medalist</strong> at the Sri Lankan Mathematics Olympiad Competition - 2019</li>
@@ -1071,7 +1031,7 @@
             </ul>
         </section>
 
-        <section id="certifications">
+        <section id="certifications" class="hidden-element">
             <h2><em>Licenses & Certifications</em></h2>
             <ul class="simple-list">
                 <li>
@@ -1101,7 +1061,7 @@
     </div>
 
     <!-- ACKNOWLEDGEMENT / QUOTE -->
-    <section class="acknowledgement" aria-labelledby="ack-title">
+    <section class="acknowledgement hidden-element" aria-labelledby="ack-title">
         <div>
             <blockquote class="ack-quote">My achievements are built on the foundation of free education; I am deeply
                 grateful to the Government of Sri Lanka and to the taxpayers whose investment in free education made
@@ -1110,7 +1070,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer id="contact" class="footer">
+    <footer id="contact" class="footer hidden-element">
         <div class="footer-content">
             <h2><em>Contact</em></h2>
             <div class="footer-links">
@@ -1507,6 +1467,18 @@
                 if (!isVideoAnimating) alignVideoTrack(false);
             });
         });
+    </script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-element');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden-element');
+        hiddenElements.forEach((el) => observer.observe(el));
     </script>
 </body>
 
