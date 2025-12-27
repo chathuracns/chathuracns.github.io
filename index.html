@@ -157,14 +157,27 @@
         }
 
         section {
-            margin-top: 4rem;
-            padding-top: 1rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 2rem;
+            width: 100%;
+            padding: 5rem 5%;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        section:last-child {
-            border-bottom: none;
+        section>* {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* Alternating Backgrounds */
+        section:nth-of-type(even) {
+            background-color: #f7f9fb;
+            /* Very subtle cool gray */
+        }
+
+        section:nth-of-type(odd) {
+            background-color: #ffffff;
         }
 
         h2 {
@@ -546,9 +559,14 @@
 
         /* --- ACKNOWLEDGEMENT / QUOTE --- */
         .acknowledgement {
-            max-width: 1100px;
-            margin: 2rem auto 1rem auto;
-            padding: 1.5rem 1.5rem;
+            width: 100%;
+            min-height: 80vh;
+            /* Make it take up most of the screen */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 2rem 5%;
             text-align: center;
             color: #333;
         }
@@ -797,285 +815,284 @@
     </div>
 
 
-    <div class="container">
+    <!-- Main Sections -->
 
-        <section id="biography" class="about hidden-element">
-            <h2><em>Biography</em></h2>
-            <p>
-                I’m <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe"><em>Chathura Nirmal
-                        Weerasinghe</em></a>. I am an Electronic Engineering Undergraduate, specializing in Biomedical
-                Engineering at the University of Moratuwa. I am passionate about <strong>Human Computer Interaction,
-                    Wearables,</strong> and <strong>Embedded Machine Learning.</strong>
-            </p>
-            <p>
-                In my <strong>Research Experience</strong>, I previously worked as a Research Intern at the <a
-                    href="https://exertiongameslab.org/" target="_blank"><em>Exertion Games Lab</em></a> at Monash
-                University, supervised by <a href="https://research.monash.edu/en/persons/don-samitha-elvitigala"
-                    target="_blank"><em>Dr. Don Samitha Elvitigala</em></a> and <a
-                    href="https://www.florianfloydmueller.com/" target="_blank"><em>Prof. Florian 'Floyd'
-                        Mueller</em></a>. My work focused on developing wearable systems, including 'VibroBits,' a
-                vibrotactile feedback system for sports training. I also provided technical engineering support for
-                various PhD projects, such as gaze aversion detection and lucid dream induction studies, and was
-                involved in the research process from initial analysis to manuscript revision.
-            </p>
-            <p>
-                In my <strong>Product Development Experience</strong>, I contributed to <a
-                    href="http://chathuranirmal.com/MeasureUP/"><em>MeasureUP</em></a>, a World Bank funded project to
-                develop a portable height measuring device. We used K means clustering to address signal loss from dense
-                scalp hair in ultrasound readings. The project was commercially launched, and I gained experience in
-                medical product development and regulatory compliance under Dr. Ajith Pasqual.
-            </p>
-            <p>
-                In my academic background, I received <a
-                    href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/honors/"><em>bronze medals for
-                        both the Physics and Mathematics Olympiad and secured the 9th place representing Sri Lanka at
-                        the 12th Statistics Olympiad in 2020</em></a>. For the GCE Advanced Level exam, I was ranked
-                99th out of 34,389 candidates, placing within the top 0.3% nationally, with A’s in all four subjects
-                Maths, Physics, Chemistry, and English.
-            </p>
-            <p>
-                In my free time, I am interested in video and graphic designing, as well as scriptwriting and acting in
-                dramas. Here, I have attached some of my dramas. Go and see "What the Sense of Humor through an
-                Engineering Eye is." <a href="https://youtu.be/yPXYBtht1XQ?feature=shared"><em>1."Latha.AI"</em></a> ,
-                <a href="https://youtu.be/5t9_GxEX5Pk?feature=shared"><em>2."Parakiyana Tharuka"</em></a>.
-            </p>
-        </section>
+    <section id="biography" class="about hidden-element">
+        <h2><em>Biography</em></h2>
+        <p>
+            I’m <a href="https://www.linkedin.com/in/chathuranirmalweerasinghe"><em>Chathura Nirmal
+                    Weerasinghe</em></a>. I am an Electronic Engineering Undergraduate, specializing in Biomedical
+            Engineering at the University of Moratuwa. I am passionate about <strong>Human Computer Interaction,
+                Wearables,</strong> and <strong>Embedded Machine Learning.</strong>
+        </p>
+        <p>
+            In my <strong>Research Experience</strong>, I previously worked as a Research Intern at the <a
+                href="https://exertiongameslab.org/" target="_blank"><em>Exertion Games Lab</em></a> at Monash
+            University, supervised by <a href="https://research.monash.edu/en/persons/don-samitha-elvitigala"
+                target="_blank"><em>Dr. Don Samitha Elvitigala</em></a> and <a
+                href="https://www.florianfloydmueller.com/" target="_blank"><em>Prof. Florian 'Floyd'
+                    Mueller</em></a>. My work focused on developing wearable systems, including 'VibroBits,' a
+            vibrotactile feedback system for sports training. I also provided technical engineering support for
+            various PhD projects, such as gaze aversion detection and lucid dream induction studies, and was
+            involved in the research process from initial analysis to manuscript revision.
+        </p>
+        <p>
+            In my <strong>Product Development Experience</strong>, I contributed to <a
+                href="http://chathuranirmal.com/MeasureUP/"><em>MeasureUP</em></a>, a World Bank funded project to
+            develop a portable height measuring device. We used K means clustering to address signal loss from dense
+            scalp hair in ultrasound readings. The project was commercially launched, and I gained experience in
+            medical product development and regulatory compliance under Dr. Ajith Pasqual.
+        </p>
+        <p>
+            In my academic background, I received <a
+                href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/honors/"><em>bronze medals for
+                    both the Physics and Mathematics Olympiad and secured the 9th place representing Sri Lanka at
+                    the 12th Statistics Olympiad in 2020</em></a>. For the GCE Advanced Level exam, I was ranked
+            99th out of 34,389 candidates, placing within the top 0.3% nationally, with A’s in all four subjects
+            Maths, Physics, Chemistry, and English.
+        </p>
+        <p>
+            In my free time, I am interested in video and graphic designing, as well as scriptwriting and acting in
+            dramas. Here, I have attached some of my dramas. Go and see "What the Sense of Humor through an
+            Engineering Eye is." <a href="https://youtu.be/yPXYBtht1XQ?feature=shared"><em>1."Latha.AI"</em></a> ,
+            <a href="https://youtu.be/5t9_GxEX5Pk?feature=shared"><em>2."Parakiyana Tharuka"</em></a>.
+        </p>
+    </section>
 
-        <section id="experience" class="hidden-element">
-            <h2><em>Experience</em></h2>
-            <p>
-                I am a former Research Intern at the award winning <a href="https://exertiongameslab.org/"
-                    target="_blank"><em>Exertion Games Lab</em></a> at Monash University, working under the supervision
-                of <a href="https://research.monash.edu/en/persons/don-samitha-elvitigala" target="_blank"><em>Dr. Don
-                        Samitha Elvitigala</em></a> and <a href="https://www.florianfloydmueller.com/"
-                    target="_blank"><em>Prof. Florian 'Floyd' Mueller</em></a>. My tenure focused on developing novel
-                wearable systems, notably 'VibroBits,' a vibrotactile feedback system for sports training demonstrated
-                at <a href="https://doi.org/10.1145/3749385.3749418" target="_blank"><em>SportsHCI ’25</em></a>, for
-                which I was the first author.
-            </p>
-            <p>
-                Beyond my primary research, I provided technical engineering for several PhD initiatives: I developed a
-                gaze aversion detection system using Tobii Eye-Trackers and embedded modules for <a
-                    href="https://www.nathalieoverdevest.com/understanding-embodied-remembering/"
-                    target="_blank"><em>Nathalie Overdevest's 'Embodied Remembering' project</em></a>, and prototyped
-                wireless olfactory and thermal devices for <a
-                    href="https://exertiongameslab.org/projects/lucientry-a-lucid-dream-induction-system"
-                    target="_blank"><em>Poyao 'Cosmos' Wang’s lucid dream induction study</em></a>. Additionally, I
-                designed AR navigation systems using HoloLens 2 for <a
-                    href="https://www.linkedin.com/in/linjia-he-90123b323" target="_blank"><em>Linjia He’s research on
-                        cyclist attention</em></a>, while also assisting in the associated systematic review. Throughout
-                the internship, I executed full-cycle research workflows from gap analysis to manuscript revision and
-                actively engaged in the lab’s scholarly culture.
-            </p>
-            <!-- Creative Carousel -->
-            <div class="carousel-container">
-                <button class="carousel-btn prev" onclick="movePrev()"><i class="fa-solid fa-chevron-left"></i></button>
+    <section id="experience" class="hidden-element">
+        <h2><em>Experience</em></h2>
+        <p>
+            I am a former Research Intern at the award winning <a href="https://exertiongameslab.org/"
+                target="_blank"><em>Exertion Games Lab</em></a> at Monash University, working under the supervision
+            of <a href="https://research.monash.edu/en/persons/don-samitha-elvitigala" target="_blank"><em>Dr. Don
+                    Samitha Elvitigala</em></a> and <a href="https://www.florianfloydmueller.com/"
+                target="_blank"><em>Prof. Florian 'Floyd' Mueller</em></a>. My tenure focused on developing novel
+            wearable systems, notably 'VibroBits,' a vibrotactile feedback system for sports training demonstrated
+            at <a href="https://doi.org/10.1145/3749385.3749418" target="_blank"><em>SportsHCI ’25</em></a>, for
+            which I was the first author.
+        </p>
+        <p>
+            Beyond my primary research, I provided technical engineering for several PhD initiatives: I developed a
+            gaze aversion detection system using Tobii Eye-Trackers and embedded modules for <a
+                href="https://www.nathalieoverdevest.com/understanding-embodied-remembering/"
+                target="_blank"><em>Nathalie Overdevest's 'Embodied Remembering' project</em></a>, and prototyped
+            wireless olfactory and thermal devices for <a
+                href="https://exertiongameslab.org/projects/lucientry-a-lucid-dream-induction-system"
+                target="_blank"><em>Poyao 'Cosmos' Wang’s lucid dream induction study</em></a>. Additionally, I
+            designed AR navigation systems using HoloLens 2 for <a
+                href="https://www.linkedin.com/in/linjia-he-90123b323" target="_blank"><em>Linjia He’s research on
+                    cyclist attention</em></a>, while also assisting in the associated systematic review. Throughout
+            the internship, I executed full-cycle research workflows from gap analysis to manuscript revision and
+            actively engaged in the lab’s scholarly culture.
+        </p>
+        <!-- Creative Carousel -->
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="movePrev()"><i class="fa-solid fa-chevron-left"></i></button>
 
-                <div class="carousel-track" id="experienceTrack">
-                    <img src="exp_arm_1.jpg" class="carousel-item" alt="Wearable Device 1">
-                    <img src="exp_device_close.jpg" class="carousel-item" alt="Device Close Up">
-                    <img src="exp_arm_2.jpg" class="carousel-item" alt="Wearable Device 2">
-                    <img src="exp_vibrobits_prototype.jpg" class="carousel-item active" alt="VibroBits Prototype">
-                    <!-- Start middle active -->
-                    <img src="exp_group_outdoor.jpg" class="carousel-item" alt="Outdoor Team">
-                    <img src="exp_green_sleeve.jpg" class="carousel-item" alt="Smart Sleeve">
-                    <img src="exp_yellow_insoles.jpg" class="carousel-item" alt="Smart Insoles">
-                    <img src="exp_sensor_straps.png" class="carousel-item" alt="Sensor Straps">
-                    <img src="exp_leg_sensors.png" class="carousel-item" alt="Leg Sensors Setup">
-                    <img src="exp_group_lunch.jpg" class="carousel-item" alt="Group Lunch Outdoor">
-                </div>
-
-                <button class="carousel-btn next" onclick="moveNext()"><i
-                        class="fa-solid fa-chevron-right"></i></button>
-            </div>
-        </section>
-
-        <section id="projects" class="projects hidden-element">
-            <h2><em>Projects</em></h2>
-
-            <!-- Video Carousel -->
-            <div class="video-carousel-container">
-                <button class="carousel-btn prev" onclick="moveVideoPrev()"><i
-                        class="fa-solid fa-chevron-left"></i></button>
-
-                <div class="video-carousel-track" id="videoTrack">
-                    <!-- BLOCK 1 -->
-                    <div class="video-carousel-item hidden-element">
-                        <div class="video-thumbnail" onclick="loadVideo(this, 'sQCjLG8IDWM')">
-                            <img src="https://img.youtube.com/vi/sQCjLG8IDWM/hqdefault.jpg" alt="Project Alpha Video">
-                            <div class="play-button"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="video-info">
-                            <h3>ECG Signal Monitoring System</h3>
-                            <p>Designed an analog circuit for ECG signal extraction using Right Leg Drive and
-                                multi stage filtering. Analyzed Op Amp parameters and validated filter effectiveness
-                                using FFT techniques.</p>
-                        </div>
-                    </div>
-
-                    <!-- BLOCK 2 -->
-                    <div class="video-carousel-item active">
-                        <div class="video-thumbnail" onclick="loadVideo(this, '7pyx1O3m0lo')">
-                            <img src="https://img.youtube.com/vi/7pyx1O3m0lo/hqdefault.jpg" alt="Project Beta Video">
-                            <div class="play-button"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="video-info">
-                            <h3>Ultrasound Height Measurement</h3>
-                            <p>Developed a K means clustering algorithm to classify ultrasound reflections from dense
-                                scalp hair, achieving 3cm accuracy. Addressed signal loss issues and preprocessed
-                                datasets for robust detection.</p>
-                        </div>
-                    </div>
-
-                    <!-- BLOCK 3 -->
-                    <div class="video-carousel-item hidden-element">
-                        <div class="video-thumbnail" onclick="loadVideo(this, 'Jsa-tMu-xNg')">
-                            <img src="https://img.youtube.com/vi/Jsa-tMu-xNg/hqdefault.jpg" alt="Project Gamma Video">
-                            <div class="play-button"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="video-info">
-                            <h3>MeasureUP - Portable BMI Device</h3>
-                            <p>Led a World Bank funded team to develop a cost effective portable BMI device. Utilized
-                                K means clustering for precision and managed FDA compliant product design and
-                                documentation.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="carousel-btn next" onclick="moveVideoNext()"><i
-                        class="fa-solid fa-chevron-right"></i></button>
+            <div class="carousel-track" id="experienceTrack">
+                <img src="exp_arm_1.jpg" class="carousel-item" alt="Wearable Device 1">
+                <img src="exp_device_close.jpg" class="carousel-item" alt="Device Close Up">
+                <img src="exp_arm_2.jpg" class="carousel-item" alt="Wearable Device 2">
+                <img src="exp_vibrobits_prototype.jpg" class="carousel-item active" alt="VibroBits Prototype">
+                <!-- Start middle active -->
+                <img src="exp_group_outdoor.jpg" class="carousel-item" alt="Outdoor Team">
+                <img src="exp_green_sleeve.jpg" class="carousel-item" alt="Smart Sleeve">
+                <img src="exp_yellow_insoles.jpg" class="carousel-item" alt="Smart Insoles">
+                <img src="exp_sensor_straps.png" class="carousel-item" alt="Sensor Straps">
+                <img src="exp_leg_sensors.png" class="carousel-item" alt="Leg Sensors Setup">
+                <img src="exp_group_lunch.jpg" class="carousel-item" alt="Group Lunch Outdoor">
             </div>
 
-            <div class="projects-grid">
-
-                <div class="project-item hidden-element">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/FYP.png"
-                        alt="BCI Game Project">
-                    <p><a href="https://github.com/fyp21-bci/.github"><em>Brain Computer Interface Game for a Locked In
-                                Pediatric Patient (Ongoing)</em></a></p>
-                </div>
-
-
-                <div class="project-item hidden-element">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Measureup.png"
-                        alt="MeasureUP Project">
-                    <p><a href="http://chathuranirmal.com/MeasureUP/"><em>World
-                                Bank funded AHEAD Project to Develop a Portable BMI Measuring Device for Clinical
-                                Settings.</em></a></p>
-                </div>
-
-                <div class="project-item hidden-element">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Zerogravity.png"
-                        alt="Zero G Project">
-                    <p><a
-                            href="https://github.com/chathuracns/Zero-G-Dynamic-Body-Weight-Support-System-Using-a-Motorized-Unloader"><em>Zero
-                                G Dynamic Body Weight Support System Using a Motorized Unloader</em></a></p>
-                </div>
-
-                <div class="project-item hidden-element">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/ECG.png"
-                        alt="ECG Project">
-                    <p><a
-                            href="https://github.com/chathuracns/ECG-Signal-Extracting-and-Monitoring-Using-Analog-Electronics-and-wet-electrodes"><em>ECG
-                                Signal Extracting and Monitoring Using Analog Electronics and Wet Electrodes</em></a>
-                    </p>
-                </div>
-
-                <div class="project-item hidden-element">
-                    <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/DenseScalp.png"
-                        alt="Human Height Project">
-                    <p><a
-                            href="https://github.com/chathuracns/Human-Height-Measuring-Under-Low-Ultrasound-Reflection-due-to-Dense-Scalp-Hair"><em>Human
-                                Height Measuring Under Low Ultrasound Reflection due to Dense Scalp Hair</em></a></p>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="publications" class="hidden-element">
-            <h2><em>Publications</em></h2>
-            <ul class="simple-list">
-                <li>
-                    <h4 class="pub-title">
-                        <a href="https://doi.org/10.1145/3749385.3749418" target="_blank">
-                            VibroBits: Visualising Body Centre of Pressure Using Vibrotactile Feedback for Sports
-                            Training
-                        </a>
-                    </h4>
-                    <p class="pub-authors">
-                        <strong> Chathura Nirmal Weerasinghe </strong>, Ruchira Abeywardhane, Uvindu Kodikara, Sasindu
-                        Abewickrema, Nihar Sabnis, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
-                        • SportsHCI '25: Proceedings of the First Annual Conference on Human Computer Interaction and
-                        Sports • November 2025
-                    </p>
-                </li>
-                <li>
-                    <h4 class="pub-title">
-                        <a href="https://doi.org/10.1145/3749385.3749413" target="_blank">
-                            GestureSock++: Toe Gestures as Alternative Input Method while Cycling
-                        </a>
-                    </h4>
-                    <p class="pub-authors">
-                        Vincent van Rheden, Sasindu Abewickrema, Uvindu Kodikara, Ruchira Abeywardhane, <strong>
-                            Chathura Weerasinghe </strong>, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
-                        • SportsHCI '25: Proceedings of the First Annual Conference on Human Computer Interaction and
-                        Sports • November 2025
-                    </p>
-                </li>
-            </ul>
-        </section>
-
-        <section id="honors" class="hidden-element">
-            <h2><em>Honors & Awards</em></h2>
-            <ul class="simple-list">
-                <li><strong>Bronze Medalist</strong> at the Sri Lankan Mathematics Olympiad Competition - 2019</li>
-                <li><strong>Bronze Medalist</strong> at the Sri Lankan Physics Olympiad Competition - 2019</li>
-                <li><strong>Finalist</strong> at the Sri Lankan Chemistry Olympiad Competition - 2019</li>
-                <li><strong>A Winner</strong> at the National Statistics Olympiad Competition - 2019</li>
-                <li><strong>A Winner</strong> at the National Statistics Olympiad Competition - 2018</li>
-                <li><strong>Secured 9th place in the senior category</strong> representing Sri Lanka at the 12th
-                    statistics olympiad. Issued by C. R. Rao Advanced Institute of Mathematics, Statistics and Computer
-                    Science (AIMSCS), University of Hyderabad Campus, Hyderabad</li>
-            </ul>
-        </section>
-
-        <section id="certifications" class="hidden-element">
-            <h2><em>Licenses & Certifications</em></h2>
-            <ul class="simple-list">
-                <li>
-                    <strong>Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and
-                        Optimization</strong> - DeepLearning.AI (Jun 2024) - <a
-                        href="https://www.coursera.org/account/accomplishments/records/NSNDL2ZSAQHP" target="_blank">ID:
-                        NSNDL2ZSAQHP</a>
-                </li>
-                <li>
-                    <strong>Neural Networks and Deep Learning</strong> - DeepLearning.AI (Jun 2024) - <a
-                        href="https://www.coursera.org/account/accomplishments/records/93TVAQH9GYHQ" target="_blank">ID:
-                        93TVAQH9GYHQ</a>
-                </li>
-                <li>
-                    <strong>Structuring Machine Learning Projects</strong> - DeepLearning.AI (Jun 2024) - <a
-                        href="https://www.coursera.org/account/accomplishments/records/RPFERV8MJQ72" target="_blank">ID:
-                        RPFERV8MJQ72</a>
-                </li>
-                <li>
-                    <strong>Public Speaking Course for Young Adults</strong> - American Corner Kandy (Mar 2023) - <a
-                        href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/certifications/1723379874210/single-media-viewer?type=IMAGE&profileId=ACoAADYPmsgBDxATZnMBMFcJtfSfmUgngpdZ4SU&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BTrFd%2BAGR8mexp52bRrXgg%3D%3D"
-                        target="_blank">View Certificate</a>
-                </li>
-            </ul>
-        </section>
-
-    </div>
-
-    <!-- ACKNOWLEDGEMENT / QUOTE -->
-    <section class="acknowledgement hidden-element" aria-labelledby="ack-title">
-        <div>
-            <blockquote class="ack-quote">My achievements are built on the foundation of free education; I am deeply
-                grateful to the Government of Sri Lanka and to the taxpayers whose investment in free education made
-                these opportunities possible.</blockquote>
+            <button class="carousel-btn next" onclick="moveNext()"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </section>
+
+    <section id="projects" class="projects hidden-element">
+        <h2><em>Projects</em></h2>
+
+        <!-- Video Carousel -->
+        <div class="video-carousel-container">
+            <button class="carousel-btn prev" onclick="moveVideoPrev()"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+
+            <div class="video-carousel-track" id="videoTrack">
+                <!-- BLOCK 1 -->
+                <div class="video-carousel-item hidden-element">
+                    <div class="video-thumbnail" onclick="loadVideo(this, 'sQCjLG8IDWM')">
+                        <img src="https://img.youtube.com/vi/sQCjLG8IDWM/hqdefault.jpg" alt="Project Alpha Video">
+                        <div class="play-button"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>ECG Signal Monitoring System</h3>
+                        <p>Designed an analog circuit for ECG signal extraction using Right Leg Drive and
+                            multi stage filtering. Analyzed Op Amp parameters and validated filter effectiveness
+                            using FFT techniques.</p>
+                    </div>
+                </div>
+
+                <!-- BLOCK 2 -->
+                <div class="video-carousel-item active">
+                    <div class="video-thumbnail" onclick="loadVideo(this, '7pyx1O3m0lo')">
+                        <img src="https://img.youtube.com/vi/7pyx1O3m0lo/hqdefault.jpg" alt="Project Beta Video">
+                        <div class="play-button"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Ultrasound Height Measurement</h3>
+                        <p>Developed a K means clustering algorithm to classify ultrasound reflections from dense
+                            scalp hair, achieving 3cm accuracy. Addressed signal loss issues and preprocessed
+                            datasets for robust detection.</p>
+                    </div>
+                </div>
+
+                <!-- BLOCK 3 -->
+                <div class="video-carousel-item hidden-element">
+                    <div class="video-thumbnail" onclick="loadVideo(this, 'Jsa-tMu-xNg')">
+                        <img src="https://img.youtube.com/vi/Jsa-tMu-xNg/hqdefault.jpg" alt="Project Gamma Video">
+                        <div class="play-button"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>MeasureUP - Portable BMI Device</h3>
+                        <p>Led a World Bank funded team to develop a cost effective portable BMI device. Utilized
+                            K means clustering for precision and managed FDA compliant product design and
+                            documentation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-btn next" onclick="moveVideoNext()"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-item hidden-element">
+                <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/FYP.png"
+                    alt="BCI Game Project">
+                <p><a href="https://github.com/fyp21-bci/.github"><em>Brain Computer Interface Game for a Locked In
+                            Pediatric Patient (Ongoing)</em></a></p>
+            </div>
+
+
+            <div class="project-item hidden-element">
+                <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Measureup.png"
+                    alt="MeasureUP Project">
+                <p><a href="http://chathuranirmal.com/MeasureUP/"><em>World
+                            Bank funded AHEAD Project to Develop a Portable BMI Measuring Device for Clinical
+                            Settings.</em></a></p>
+            </div>
+
+            <div class="project-item hidden-element">
+                <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/Zerogravity.png"
+                    alt="Zero G Project">
+                <p><a
+                        href="https://github.com/chathuracns/Zero-G-Dynamic-Body-Weight-Support-System-Using-a-Motorized-Unloader"><em>Zero
+                            G Dynamic Body Weight Support System Using a Motorized Unloader</em></a></p>
+            </div>
+
+            <div class="project-item hidden-element">
+                <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/ECG.png"
+                    alt="ECG Project">
+                <p><a
+                        href="https://github.com/chathuracns/ECG-Signal-Extracting-and-Monitoring-Using-Analog-Electronics-and-wet-electrodes"><em>ECG
+                            Signal Extracting and Monitoring Using Analog Electronics and Wet Electrodes</em></a>
+                </p>
+            </div>
+
+            <div class="project-item hidden-element">
+                <img src="https://raw.githubusercontent.com/chathuracns/chathuracns.github.io/main/DenseScalp.png"
+                    alt="Human Height Project">
+                <p><a
+                        href="https://github.com/chathuracns/Human-Height-Measuring-Under-Low-Ultrasound-Reflection-due-to-Dense-Scalp-Hair"><em>Human
+                            Height Measuring Under Low Ultrasound Reflection due to Dense Scalp Hair</em></a></p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="publications" class="hidden-element">
+        <h2><em>Publications</em></h2>
+        <ul class="simple-list">
+            <li>
+                <h4 class="pub-title">
+                    <a href="https://doi.org/10.1145/3749385.3749418" target="_blank">
+                        VibroBits: Visualising Body Centre of Pressure Using Vibrotactile Feedback for Sports
+                        Training
+                    </a>
+                </h4>
+                <p class="pub-authors">
+                    <strong> Chathura Nirmal Weerasinghe </strong>, Ruchira Abeywardhane, Uvindu Kodikara, Sasindu
+                    Abewickrema, Nihar Sabnis, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
+                    • SportsHCI '25: Proceedings of the First Annual Conference on Human Computer Interaction and
+                    Sports • November 2025
+                </p>
+            </li>
+            <li>
+                <h4 class="pub-title">
+                    <a href="https://doi.org/10.1145/3749385.3749413" target="_blank">
+                        GestureSock++: Toe Gestures as Alternative Input Method while Cycling
+                    </a>
+                </h4>
+                <p class="pub-authors">
+                    Vincent van Rheden, Sasindu Abewickrema, Uvindu Kodikara, Ruchira Abeywardhane, <strong>
+                        Chathura Weerasinghe </strong>, Florian ’Floyd’ Mueller, Don Samitha Elvitigala
+                    • SportsHCI '25: Proceedings of the First Annual Conference on Human Computer Interaction and
+                    Sports • November 2025
+                </p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="honors" class="hidden-element">
+        <h2><em>Honors & Awards</em></h2>
+        <ul class="simple-list">
+            <li><strong>Bronze Medalist</strong> at the Sri Lankan Mathematics Olympiad Competition - 2019</li>
+            <li><strong>Bronze Medalist</strong> at the Sri Lankan Physics Olympiad Competition - 2019</li>
+            <li><strong>Finalist</strong> at the Sri Lankan Chemistry Olympiad Competition - 2019</li>
+            <li><strong>A Winner</strong> at the National Statistics Olympiad Competition - 2019</li>
+            <li><strong>A Winner</strong> at the National Statistics Olympiad Competition - 2018</li>
+            <li><strong>Secured 9th place in the senior category</strong> representing Sri Lanka at the 12th
+                statistics olympiad. Issued by C. R. Rao Advanced Institute of Mathematics, Statistics and Computer
+                Science (AIMSCS), University of Hyderabad Campus, Hyderabad</li>
+        </ul>
+    </section>
+
+    <section id="certifications" class="hidden-element">
+        <h2><em>Licenses & Certifications</em></h2>
+        <ul class="simple-list">
+            <li>
+                <strong>Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and
+                    Optimization</strong> - DeepLearning.AI (Jun 2024) - <a
+                    href="https://www.coursera.org/account/accomplishments/records/NSNDL2ZSAQHP" target="_blank">ID:
+                    NSNDL2ZSAQHP</a>
+            </li>
+            <li>
+                <strong>Neural Networks and Deep Learning</strong> - DeepLearning.AI (Jun 2024) - <a
+                    href="https://www.coursera.org/account/accomplishments/records/93TVAQH9GYHQ" target="_blank">ID:
+                    93TVAQH9GYHQ</a>
+            </li>
+            <li>
+                <strong>Structuring Machine Learning Projects</strong> - DeepLearning.AI (Jun 2024) - <a
+                    href="https://www.coursera.org/account/accomplishments/records/RPFERV8MJQ72" target="_blank">ID:
+                    RPFERV8MJQ72</a>
+            </li>
+            <li>
+                <strong>Public Speaking Course for Young Adults</strong> - American Corner Kandy (Mar 2023) - <a
+                    href="https://www.linkedin.com/in/chathuranirmalweerasinghe/details/certifications/1723379874210/single-media-viewer?type=IMAGE&profileId=ACoAADYPmsgBDxATZnMBMFcJtfSfmUgngpdZ4SU&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BTrFd%2BAGR8mexp52bRrXgg%3D%3D"
+                    target="_blank">View Certificate</a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ACKNOWLEDGEMENT / QUOTE -->
+    <div class="container">
+        <section class="acknowledgement hidden-element" aria-labelledby="ack-title">
+            <div>
+                <blockquote class="ack-quote">My achievements are built on the foundation of free education; I am deeply
+                    grateful to the Government of Sri Lanka and to the taxpayers whose investment in free education made
+                    these opportunities possible.</blockquote>
+            </div>
+        </section>
+    </div>
 
     <!-- FOOTER -->
     <footer id="contact" class="footer hidden-element">
@@ -1492,4 +1509,3 @@
 
 
 </html>
-
