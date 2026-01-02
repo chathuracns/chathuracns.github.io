@@ -1405,9 +1405,68 @@
             return { itemWidth, gap, totalWidth: itemWidth + gap, items };
         }
 
+        function ensureOddItems() {
+            const track = document.getElementById('videoTrack');
+            if (!track) return;
+            let items = Array.from(track.children);
+
+            // We need 5 items minimum for smooth infinite scroll with 1 center + 2 neighbors each side
+            // AND we want an odd number so the math is clean.
+            // If < 5 or even, we clone.
+            // Strategy: Keep cloning until we have at least 5 AND it is odd.
+
+            // Safety break
+            let loops = 0;
+            while ((items.length < 5 || items.length % 2 === 0) && loops < 5) {
+                // Determine how many to add.
+                // If we need more items, just duplicate the whole initial set and loop again.
+                // We clone all current items to preserve the sequence pattern (1,2,3,4 -> 1,2,3,4,1,2,3,4)
+
+                // Be careful not to exponential loop forever if initial set is empty (handled by check above)
+                const currentItems = Array.from(track.children);
+                if (currentItems.length === 0) break;
+
+                // Clone them
+                currentItems.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    // Remove active class from clones to be safe
+                    clone.classList.remove('active');
+                    // CRITICAL FIX: Remove hidden-element class so clones are visible
+                    // (they are created after observer init, so they would stay hidden otherwise)
+                    clone.classList.remove('hidden-element');
+                    clone.classList.remove('show-element');
+                    track.appendChild(clone);
+                });
+
+                // Update items array for next check
+                items = Array.from(track.children);
+                loops++;
+            }
+
+            // If we ended up with even number after simply duplicating (e.g. 4 -> 8),
+            // remove the last one to make it odd (e.g. 7).
+            // Or add one more clone of the first item?
+            // Actually, infinite scrolling works best if the sequence repeats.
+            // 4 items: A B C D.
+            // Clone -> A B C D A B C D (8 items).
+            // We want odd. Remove last? A B C D A B C (-D).
+            // Sequence: A B C D A B C.
+            // Next would be 'A'.
+            // Infinite scroll logic: moving last to first or first to last handles the continuity.
+            // So yes, removing the last item or appending one more is fine.
+            // Let's Append one more of the FIRST item type if we are even.
+
+            if (items.length % 2 === 0) {
+                const first = items[0].cloneNode(true);
+                first.classList.remove('active');
+                first.classList.remove('hidden-element');
+                first.classList.remove('show-element');
+                track.appendChild(first);
+            }
+        }
+
         function alignVideoTrack(animate = false) {
             const track = document.getElementById('videoTrack');
-            // If track is not found (e.g. if code runs before DOM, though we use DOMContentLoaded)
             if (!track) return;
 
             const container = document.querySelector('.video-carousel-container');
@@ -1429,7 +1488,9 @@
 
             track.style.transform = `translateX(${offset}px)`;
 
+            // Force cleanup of all active classes
             items.forEach(item => item.classList.remove('active'));
+            // Set middle active
             if (items[middleIndex]) items[middleIndex].classList.add('active');
 
             return offset;
@@ -1437,9 +1498,6 @@
 
         // --- NEW LOADER FUNCTION FOR FACADE ---
         function loadVideo(element, videoId) {
-            // 'element' is the .video-thumbnail div
-            // We want to replace it with the iframe
-            // Using youtube-nocookie and autoplay=1 so it plays immediately
             element.innerHTML = `
                 <iframe width="560" height="315" 
                     src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=1" 
@@ -1448,9 +1506,7 @@
                     allowfullscreen>
                 </iframe>
             `;
-            // Remove the 'onclick' so we don't trigger it again (though content is gone, it's safer)
             element.onclick = null;
-            // Also ensure cursor changes back to default if needed, though replaced content handles it
             element.style.cursor = 'default';
         }
 
@@ -1467,6 +1523,7 @@
             const middleIndex = Math.floor(items.length / 2);
 
             // Zoom effect transition
+            // We know middleIndex is the current center. We are moving Left, so middleIndex+1 becomes center.
             if (items[middleIndex]) items[middleIndex].classList.remove('active');
             if (items[middleIndex + 1]) items[middleIndex + 1].classList.add('active');
 
@@ -1477,8 +1534,11 @@
 
             setTimeout(() => {
                 track.style.transition = "none";
-                track.appendChild(track.firstElementChild);
+                track.appendChild(track.firstElementChild); // Move first to last
+
+                // CRITICAL: Re-align to fix any sub-pixel drift and ensure mathematically perfect center
                 alignVideoTrack(false);
+
                 isVideoAnimating = false;
             }, 500);
         }
@@ -1490,33 +1550,76 @@
             const track = document.getElementById('videoTrack');
             if (!track) return;
 
+            // 1. Instant Setup: Move last to first PREEMPTIVELY
             track.prepend(track.lastElementChild);
 
-            const baseOffset = alignVideoTrack(false);
-            track.style.transition = "none";
+            // Now we are "one item to the left" of where we want to be visually?
+            // Wait, if we prepend, the whole row shifts right. 
+            // We need to compensate by shifting the track LEFT by one item width immediately (no anim)
+
+            // However, our alignVideoTrack calculates based on "Current Middle".
+            // If we added item to front, the "Middle" index might have shifted or the content at Middle changed.
+
+            // Let's stick to the robust logic:
+            // 1. Calculate where we would be if we were perfectly aligned NOW (post-prepend).
+            // The item that WAS at middle is now at middle+1? 
+            // Actually, simply calling alignVideoTrack(false) aligns the CURRENT set of items so the middle one is centered.
+            // But we want the visual state to match the "Previous" state before the slide.
+
+            // Let's do the manual offset trick for seamlessness:
+            // Get metrics
             const { totalWidth } = getVideoMetrics();
-            track.style.transform = `translateX(${baseOffset - totalWidth}px)`;
 
-            void track.offsetWidth; // Force Reflow
+            // Re-Align instantly to center the NEW middle item (which was the one to the left of old middle?)
+            // If we prepend, the array shifts. 
+            // Visual Sequence: [A] [B] [C] [D] [E] -> C is center.
+            // Move Prev -> We want B to be center.
+            // Prepend E -> [E] [A] [B] [C] [D]. New Center is B.
+            // If we valid alignVideoTrack(false) NOW, B will be centered.
+            // But visually, we want to start from "C was centered" (which is now one unit right of center).
+            // So we start from (CenterOffset - TotalWidth).
 
+            const offset = alignVideoTrack(false); // This centers B (the new middle)
+
+            // FORCE START POSITION: Shift left so "C" is back in the center visually
+            track.style.transition = "none";
+            track.style.transform = `translateX(${offset - totalWidth}px)`;
+
+            // Temporarily Force "C" (now at middle+1) to be active for the smooth transition look
             const items = Array.from(track.children);
             const middleIndex = Math.floor(items.length / 2);
-            items.forEach(i => i.classList.remove('active'));
-            if (items[middleIndex]) items[middleIndex].classList.add('active');
 
+            // Our alignVideoTrack made 'middleIndex' (B) active. Undo that for a moment for the animation start state.
+            items[middleIndex].classList.remove('active');
+            if (items[middleIndex + 1]) items[middleIndex + 1].classList.add('active'); // "C" is active
+
+            // Force Reflow
+            void track.offsetWidth;
+
+            // 2. Animate to Center (Slide Right)
             requestAnimationFrame(() => {
                 track.style.transition = "transform 0.5s ease-in-out";
-                track.style.transform = `translateX(${baseOffset}px)`;
+                track.style.transform = `translateX(${offset}px)`; // Slide to B being center
+
+                // Swap Active Class during animation (or start of it? usually simultaneous looks ok)
+                // Let's do the cross-fade (scale change) during transition
+                if (items[middleIndex + 1]) items[middleIndex + 1].classList.remove('active'); // Shrink C
+                if (items[middleIndex]) items[middleIndex].classList.add('active'); // Grow B
             });
 
             setTimeout(() => {
                 isVideoAnimating = false;
+                // Final hard align just in case
+                alignVideoTrack(false);
             }, 500);
         }
 
         // Init Video Carousel
         document.addEventListener("DOMContentLoaded", () => {
-            // Need a slight delay or ensure layout is ready if sizes depend on container which might be fluid
+            // 1. Ensure enough items for infinite loop + Odd number for symmetry
+            ensureOddItems();
+
+            // 2. Initial Align
             setTimeout(() => alignVideoTrack(false), 100);
 
             window.addEventListener('resize', () => {
