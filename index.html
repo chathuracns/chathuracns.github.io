@@ -726,8 +726,7 @@
             /* When active, menu expands */
             .navbar-links.active {
                 max-height: 400px;
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                /* background and shadow removed to match header transparency */
             }
 
             .navbar-links ul li {
@@ -735,8 +734,45 @@
                 padding: 0.8rem 0;
             }
 
+            /* --- Animated Hamburger Icon --- */
             .hamburger {
                 display: block;
+                cursor: pointer;
+                width: 24px;
+                /* Reduced from 30px */
+                height: 18px;
+                /* Reduced from 24px */
+                position: relative;
+                z-index: 1100;
+                /* Ensure above menu */
+                display: flex;
+                /* Flex to align bars if needed, but absolute pos is used below */
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .bar {
+                display: block;
+                width: 100%;
+                height: 2px;
+                /* Reduced from 3px */
+                background-color: #333;
+                border-radius: 2px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            /* Animation States */
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                /* (18px - 2px) / 2 = 8px translation */
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
             }
 
             /* --- Video Carousel Mobile Optimization --- */
@@ -801,7 +837,9 @@
 
         <!-- HAMBURGER ICON -->
         <div class="hamburger" onclick="toggleMenu()">
-            <i class="fa-solid fa-bars"></i>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
 
         <!-- NAV LINKS -->
@@ -1183,14 +1221,25 @@
     <script>
         function toggleMenu() {
             const menu = document.getElementById("mobileMenu");
+            const hamburger = document.querySelector(".hamburger");
+
             menu.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById("mobileMenu");
+            const hamburger = document.querySelector(".hamburger");
+
+            if (menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                hamburger.classList.remove("active");
+            }
         }
 
         // 1. Close menu automatically when clicking any menu link
         document.querySelectorAll("#mobileMenu a").forEach(item => {
-            item.addEventListener("click", () => {
-                document.getElementById("mobileMenu").classList.remove("active");
-            });
+            item.addEventListener("click", closeMenu);
         });
 
         // 2. Close menu when clicking outside the menu or hamburger
@@ -1202,7 +1251,7 @@
             if (menu.classList.contains("active") &&
                 !menu.contains(event.target) &&
                 !hamburger.contains(event.target)) {
-                menu.classList.remove("active");
+                closeMenu();
             }
         });
     </script>
@@ -1228,21 +1277,15 @@
                 });
 
                 // Close menu after clicking
-                menu.classList.remove("active");
+                if (typeof closeMenu === 'function') {
+                    closeMenu();
+                } else {
+                    menu.classList.remove("active");
+                }
             });
         });
 
-        // Close menu when clicking outside
-        document.addEventListener("click", function (event) {
-            const menu = document.getElementById("mobileMenu");
-            const hamburger = document.querySelector(".hamburger");
-
-            if (menu.classList.contains("active") &&
-                !menu.contains(event.target) &&
-                !hamburger.contains(event.target)) {
-                menu.classList.remove("active");
-            }
-        });
+        // (Duplicate "Close menu when clicking outside" listener removed)
     </script>
 
 
