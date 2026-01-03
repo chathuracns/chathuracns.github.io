@@ -1639,6 +1639,93 @@
         const hiddenElements = document.querySelectorAll('.hidden-element');
         hiddenElements.forEach((el) => observer.observe(el));
     </script>
+
+    <script>
+        /* --- TOUCH SWIPE SUPPORT --- */
+        function addSwipeSupport(container, moveNextCallback, movePrevCallback) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const minSwipeDistance = 50;
+
+            container.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            container.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const distance = touchStartX - touchEndX;
+
+                // If swipe distance is significant
+                if (Math.abs(distance) > minSwipeDistance) {
+                    if (distance > 0) {
+                        // Swiped Left (Finger moves Right to Left) -> Show Next Item
+                        moveNextCallback();
+                    } else {
+                        // Swiped Right (Finger moves Left to Right) -> Show Prev Item
+                        movePrevCallback();
+                    }
+                }
+            }
+        }
+
+        // 2. Trackpad / Wheel Scroll
+        function addWheelSupport(container, moveNextCallback, movePrevCallback) {
+            let isScrolling = false;
+
+            container.addEventListener('wheel', (e) => {
+                // Check if the scroll is primarily horizontal
+                if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                    e.preventDefault(); // Prevent browser back/forward history navigation
+
+                    if (isScrolling) return;
+
+                    // Threshold to filter accidental tiny movements
+                    if (Math.abs(e.deltaX) > 10) {
+                        isScrolling = true;
+
+                        if (e.deltaX > 0) {
+                            // Scroll Right -> Next Item
+                            moveNextCallback();
+                        } else {
+                            // Scroll Left -> Prev Item
+                            movePrevCallback();
+                        }
+
+                        // Cooldown to prevent rapid-fire skipping
+                        setTimeout(() => {
+                            isScrolling = false;
+                        }, 800);
+                    }
+                }
+            }, { passive: false });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Experience Carousel
+            const expContainer = document.querySelector('.carousel-container');
+            if (expContainer) {
+                addSwipeSupport(expContainer, moveNext, movePrev);
+                addWheelSupport(expContainer, moveNext, movePrev);
+
+                // Handle AutoPlay pausing on touch interaction
+                if (typeof stopAutoPlay === 'function' && typeof startAutoPlay === 'function') {
+                    expContainer.addEventListener('touchstart', stopAutoPlay, { passive: true });
+                    expContainer.addEventListener('touchend', startAutoPlay, { passive: true });
+                }
+            }
+
+            // Video Carousel
+            const videoContainer = document.querySelector('.video-carousel-container');
+            if (videoContainer) {
+                addSwipeSupport(videoContainer, moveVideoNext, moveVideoPrev);
+                addWheelSupport(videoContainer, moveVideoNext, moveVideoPrev);
+            }
+        });
+    </script>
 </body>
 
 
