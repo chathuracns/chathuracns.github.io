@@ -513,11 +513,12 @@
         .footer-nav ul {
             list-style: none;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 1.5rem;
             margin: 0;
             padding: 0;
             align-items: center;
-            /* Ensure items inside UL are also centered if they have different heights */
         }
 
         .footer-nav a {
@@ -559,9 +560,9 @@
             }
 
             .footer-nav ul {
-                flex-direction: column;
+                /* flex-direction: column; REMOVED to allow wrapping */
                 justify-content: center;
-                gap: 0.8rem;
+                gap: 1rem;
             }
 
             .footer-nav a {
