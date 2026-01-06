@@ -508,10 +508,13 @@
             font-style: italic;
             line-height: 1;
             /* Ensure tight bounding box for centering */
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             border-left: 4px solid #0056b3;
             padding-left: 1rem;
         }
+
+
 
         .footer-nav ul {
             list-style: none;
@@ -547,7 +550,29 @@
             border-top: 1px solid #ddd;
             padding-top: 1rem;
             width: 100%;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Centered Text */
+            position: relative;
+            /* Context for logo */
+            min-height: 60px;
+            /* Ensure space for logo */
+        }
+
+        .footer-logo {
+            height: 50px;
+            /* Larger Size */
+            width: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+
+            position: absolute;
+            left: 0;
+            /* Vertically center or bottom align? User said bottom corner. 
+               Since it's a single line usually, centering is safest visual. */
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         /* Responsive adjustments for footer */
@@ -603,15 +628,7 @@
             color: #555;
         }
 
-        .footer-copyright {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 1rem;
-            border-top: 1px solid #ddd;
-            padding-top: 1rem;
-            width: 100%;
-        }
+
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
@@ -1200,9 +1217,10 @@
             </div>
         </section>
 
-        <p class="footer-copyright">
-            © 2025 Chathura Nirmal Weerasinghe. All rights reserved.
-        </p>
+        <div class="footer-copyright">
+            <img src="favicon.png" alt="Logo" class="footer-logo">
+            <span>© 2025 Chathura Nirmal Weerasinghe. All rights reserved.</span>
+        </div>
     </footer>
 
     <script>
