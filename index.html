@@ -1813,6 +1813,21 @@
             }
         });
     </script>
+    <script>
+        // Smooth scroll for Header Brand Name
+        document.addEventListener("DOMContentLoaded", () => {
+            const brandLink = document.querySelector('.navbar-brand a');
+            if (brandLink) {
+                brandLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 
