@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Codystar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
@@ -585,23 +585,19 @@
 
         .logo-letter,
         .logo-hidden {
-            font-family: 'Codystar', cursive;
+            font-family: "Nothing You Could Do", cursive;
+            font-weight: 400;
+            font-style: normal;
             color: #222;
             font-size: 1.6rem;
-            /* Increased size for larger dots */
-            font-weight: 700;
-            /* Bold weight */
             text-shadow: 0.5px 0.5px 0 #222;
-            /* Subtle shadow to thicken dots */
             white-space: pre;
-            /* Preserve space in "hathura " */
             padding-top: 4px;
-            /* Alignment */
         }
 
         /* The letters C, N, 's remain visible but might shift */
         .logo-letter {
-            transition: transform 0.8s ease;
+            transition: transform 1.2s ease;
         }
 
         /* The parts that expand */
@@ -611,7 +607,7 @@
             opacity: 0;
             overflow: hidden;
             /* Slower duration and delay matching hover delay */
-            transition: max-width 0.9s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
+            transition: max-width 1.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1.0s ease;
             vertical-align: bottom;
         }
 
@@ -621,8 +617,8 @@
             max-width: 350px;
             /* Increased for larger 1.6rem font */
             opacity: 1;
-            transition-delay: 0.3s;
-            /* Wait 0.3s before starting to show text */
+            transition-delay: 0.5s;
+            /* Wait 0.5s before starting to show text */
         }
 
         /* Responsive adjustments for footer */
