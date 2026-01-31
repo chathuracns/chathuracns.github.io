@@ -210,7 +210,7 @@
         }
 
         .project-item {
-            background: #f2f2f2;
+            background: #f7f9fb;
 
             border-radius: 8px;
             overflow: hidden;
@@ -332,7 +332,7 @@
         .video-carousel-item {
             width: 400px;
             /* Wider cards for video */
-            background: #f2f2f2;
+            background: #f7f9fb;
             border-radius: 12px;
             overflow: hidden;
 
@@ -552,6 +552,9 @@
             padding-top: 1rem;
             width: 100%;
             display: flex;
+            flex-direction: column;
+            /* Stack vertically */
+            gap: 0.5rem;
             align-items: center;
             justify-content: center;
             /* Centered Text */
@@ -563,14 +566,15 @@
 
         /* --- ANIMATED LOGO EXPANDER --- */
         .logo-expander {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
+            position: static;
+            /* Remove absolute positioning */
+            transform: none;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 0.5rem;
+            /* Add spacing below logo */
             border-radius: 25px;
             background-color: transparent;
             box-shadow: none;
@@ -643,19 +647,9 @@
                 font-size: 0.9rem;
             }
 
-            /* Stack copyright and logo to avoid overlap */
+            /* Stack copyright and logo to avoid overlap - NOW GLOBAL */
             .footer-copyright {
-                flex-direction: column;
-                gap: 0.5rem;
                 padding-bottom: 1rem;
-            }
-
-            .logo-expander {
-                position: static;
-                transform: none;
-                margin-bottom: 0.5rem;
-                /* On mobile, maybe we don't assume hover or let it work on tap */
-                box-shadow: none;
             }
 
             .copyright-text {
