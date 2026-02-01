@@ -211,15 +211,16 @@
 
         .project-item {
             background: #f7f9fb;
-
+            position: relative;
+            cursor: pointer;
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.08s ease, box-shadow 0.08s ease;
         }
 
         .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .project-item img {
@@ -233,6 +234,17 @@
             text-align: center;
             font-weight: bold;
             margin-bottom: 0;
+        }
+
+        /* --- STRETCHED LINK UTILITY --- */
+        .stretched-link::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            content: "";
         }
 
         /* --- CREATIVE CAROUSEL --- */
@@ -1121,37 +1133,38 @@
 
             <div class="project-item hidden-element">
                 <img src="images/FYP.png" alt="BCI Game Project">
-                <p><a href="https://github.com/fyp21-bci/.github"><em>Brain Computer Interface Game for a Locked In
+                <p><a href="https://github.com/fyp21-bci/.github" class="stretched-link"><em>Brain Computer Interface
+                            Game for a Locked In
                             Pediatric Patient (Ongoing)</em></a></p>
             </div>
 
 
             <div class="project-item hidden-element">
                 <img src="images/Measureup.png" alt="MeasureUP Project">
-                <p><a href="http://chathuranirmal.com/MeasureUP/"><em>World
+                <p><a href="http://chathuranirmal.com/MeasureUP/" class="stretched-link"><em>World
                             Bank funded AHEAD Project to Develop a Portable BMI Measuring Device for Clinical
                             Settings.</em></a></p>
             </div>
 
             <div class="project-item hidden-element">
                 <img src="images/Zerogravity.png" alt="Zero G Project">
-                <p><a
-                        href="https://github.com/chathuracns/Zero-G-Dynamic-Body-Weight-Support-System-Using-a-Motorized-Unloader"><em>Zero
+                <p><a href="https://github.com/chathuracns/Zero-G-Dynamic-Body-Weight-Support-System-Using-a-Motorized-Unloader"
+                        class="stretched-link"><em>Zero
                             G Dynamic Body Weight Support System Using a Motorized Unloader</em></a></p>
             </div>
 
             <div class="project-item hidden-element">
                 <img src="images/ECG.png" alt="ECG Project">
-                <p><a
-                        href="https://github.com/chathuracns/ECG-Signal-Extracting-and-Monitoring-Using-Analog-Electronics-and-wet-electrodes"><em>ECG
+                <p><a href="https://github.com/chathuracns/ECG-Signal-Extracting-and-Monitoring-Using-Analog-Electronics-and-wet-electrodes"
+                        class="stretched-link"><em>ECG
                             Signal Extracting and Monitoring Using Analog Electronics and Wet Electrodes</em></a>
                 </p>
             </div>
 
             <div class="project-item hidden-element">
                 <img src="images/DenseScalp.png" alt="Human Height Project">
-                <p><a
-                        href="https://github.com/chathuracns/Human-Height-Measuring-Under-Low-Ultrasound-Reflection-due-to-Dense-Scalp-Hair"><em>Human
+                <p><a href="https://github.com/chathuracns/Human-Height-Measuring-Under-Low-Ultrasound-Reflection-due-to-Dense-Scalp-Hair"
+                        class="stretched-link"><em>Human
                             Height Measuring Under Low Ultrasound Reflection due to Dense Scalp Hair</em></a></p>
             </div>
 
