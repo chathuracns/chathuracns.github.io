@@ -131,10 +131,10 @@
             transform: scale(1.1);
         }
 
-        .parallax-container .profile-text {
-            position: relative;
-            z-index: 5;
-            /* text stays above image */
+        .passion-banner {
+            background-color: #fdfdfd;
+            padding: 4rem 5% 1rem 5%;
+            text-align: center;
         }
 
 
@@ -145,16 +145,15 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
-        .profile-text h4 {
+        .passion-banner h4 {
             font-weight: 400;
-            color: #fff;
-            max-width: 100%;
+            color: #222;
+            max-width: 900px;
+            /* Constrain slightly for readability */
             margin: 0 auto;
             font-size: 1.8rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: clip;
+            line-height: 1.2;
+            text-align: center;
         }
 
         /* --- MAIN CONTAINER --- */
@@ -752,13 +751,17 @@
 
 
 
-            .profile-text h4 {
-                font-size: 3.5vw;
-                /* Use viewport width to scale perfectly */
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: clip;
-                max-width: 100%;
+            .passion-banner {
+                padding: 2.5rem 1rem 0.5rem 1rem;
+            }
+
+            .passion-banner h4 {
+                font-size: 1.2rem;
+                /* Better for wrapped text on mobile */
+                max-width: 90%;
+                margin: 0 auto;
+                text-align: center;
+                color: #222;
             }
 
             /* Reduced topic (section header) font sizes */
@@ -962,9 +965,10 @@
 
     <div class="profile-header parallax-container">
         <div class="parallax-bg"></div>
-        <div class="profile-text">
-            <h4><em>Passionate about Wearables | Human Computer Interaction | Edge Computing</em></h4>
-        </div>
+    </div>
+
+    <div class="passion-banner">
+        <h4><em>Passionate about Wearables | Human Computer Interaction | Edge Computing</em></h4>
     </div>
 
 
