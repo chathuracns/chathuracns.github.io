@@ -95,11 +95,11 @@
         /* --- HERO PROFILE HEADER (UPDATED) --- */
         .profile-header {
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
             height: 65vh;
             min-height: 400px;
-            padding: 0 5%;
+            padding: 0 5% 4rem 5%;
             text-align: center;
             color: white;
 
@@ -148,10 +148,13 @@
         .profile-text h4 {
             font-weight: 400;
             color: #fff;
-            max-width: 700px;
+            max-width: 100%;
             margin: 0 auto;
-            font-size: 1.3rem;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            font-size: 1.8rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
         }
 
         /* --- MAIN CONTAINER --- */
@@ -744,16 +747,18 @@
 
             .profile-header {
                 height: 50vh;
-                padding: 0 1rem;
+                padding: 0 1rem 2rem 1rem;
             }
 
-            /* Reduced font size for profile name */
-            .profile-text h1 {
-                font-size: 1.4rem;
-            }
+
 
             .profile-text h4 {
-                font-size: 0.9rem;
+                font-size: 3.5vw;
+                /* Use viewport width to scale perfectly */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: clip;
+                max-width: 100%;
             }
 
             /* Reduced topic (section header) font sizes */
@@ -958,7 +963,6 @@
     <div class="profile-header parallax-container">
         <div class="parallax-bg"></div>
         <div class="profile-text">
-            <h1><em>Chathura Nirmal Weerasinghe</em></h1>
             <h4><em>Passionate about Wearables | Human Computer Interaction | Edge Computing</em></h4>
         </div>
     </div>
