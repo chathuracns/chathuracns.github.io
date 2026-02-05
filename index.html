@@ -1566,29 +1566,17 @@
             if (!track) return;
             let items = Array.from(track.children);
 
-            // We need 5 items minimum for smooth infinite scroll with 1 center + 2 neighbors each side
-            // AND we want an odd number so the math is clean.
-            // If < 5 or even, we clone.
-            // Strategy: Keep cloning until we have at least 5 AND it is odd.
-
-            // Safety break
+            // 1. Ensure minimal count (e.g. 5) for smooth scrolling
+            // Only duplicate if we have fewer than 5 items
             let loops = 0;
-            while ((items.length < 5 || items.length % 2 === 0) && loops < 5) {
-                // Determine how many to add.
-                // If we need more items, just duplicate the whole initial set and loop again.
-                // We clone all current items to preserve the sequence pattern (1,2,3,4 -> 1,2,3,4,1,2,3,4)
-
-                // Be careful not to exponential loop forever if initial set is empty (handled by check above)
+            while (items.length < 5 && loops < 3) {
                 const currentItems = Array.from(track.children);
                 if (currentItems.length === 0) break;
 
-                // Clone them
                 currentItems.forEach(item => {
                     const clone = item.cloneNode(true);
-                    // Remove active class from clones to be safe
+                    // Remove state classes from clones
                     clone.classList.remove('active');
-                    // CRITICAL FIX: Remove hidden-element class so clones are visible
-                    // (they are created after observer init, so they would stay hidden otherwise)
                     clone.classList.remove('hidden-element');
                     clone.classList.remove('show-element');
                     track.appendChild(clone);
@@ -1599,19 +1587,7 @@
                 loops++;
             }
 
-            // If we ended up with even number after simply duplicating (e.g. 4 -> 8),
-            // remove the last one to make it odd (e.g. 7).
-            // Or add one more clone of the first item?
-            // Actually, infinite scrolling works best if the sequence repeats.
-            // 4 items: A B C D.
-            // Clone -> A B C D A B C D (8 items).
-            // We want odd. Remove last? A B C D A B C (-D).
-            // Sequence: A B C D A B C.
-            // Next would be 'A'.
-            // Infinite scroll logic: moving last to first or first to last handles the continuity.
-            // So yes, removing the last item or appending one more is fine.
-            // Let's Append one more of the FIRST item type if we are even.
-
+            // 2. Ensure Odd Number (for perfect centering)
             if (items.length % 2 === 0) {
                 const first = items[0].cloneNode(true);
                 first.classList.remove('active');
@@ -1778,8 +1754,12 @@
             // 2. Initial Align
             setTimeout(() => alignVideoTrack(false), 100);
 
+            let resizeTimeout;
             window.addEventListener('resize', () => {
-                if (!isVideoAnimating) alignVideoTrack(false);
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    if (!isVideoAnimating) alignVideoTrack(false);
+                }, 100);
             });
         });
     </script>
